@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>WithUS</title>
+
+    <!-- 新 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <!-- 可选的Bootstrap主题文件（一般不用引入） -->
+    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+
+
+</head>
+<body>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="jumbotron">
+
+                <div class="page-header">
+                    <h2>活动管理页面<small>（${activity.name}）</small></h2>
+                </div>
+
+                <div class="panel panel-default">
+                    <!-- Default panel contents -->
+                    <div class="panel-heading">活动成员</div>
+                    <!-- Table -->
+                    <table class="table table-hover">
+                        <tbody>
+                        #foreach($appliedUser in $appliedUserList)
+                            <tr>
+                                <td>$appliedUser.userName</td>
+                                #if($appliedUser.status == 1)
+                                    <td><button type="button" class="btn btn-link">
+                                        <a href="/activity/doAuditPassMember?activityId=${activity.id}&userId=$!{appliedUser.userId}">通过</a>
+                                    </button>
+                                    </td>
+                                #end
+
+                                #if($appliedUser.status != 1)
+                                    <td><button type="button" class="btn btn-link" disabled>
+                                        <a href="#">暂不开放</a>
+                                    </button>
+                                    </td>
+                                #end
+
+                            </tr>
+                        #end
+                        </tbody>
+                    </table>
+                </div>
+
+
+
+
+
+
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+<script src="http://cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+<script src="http://cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+
+</body>
+</html>

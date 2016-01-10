@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="zh-CN" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+    <meta name="_csrf" content="${_csrf.token}"/>
+    <meta name="_csrf_header" content="${_csrf.headerName}"/>
+
+    <!-- ... -->
+
+    <title>WithUS</title>
+
+    <!-- 新 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <!-- 可选的Bootstrap主题文件（一般不用引入） -->
+    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+
+    <link href="http://cdn.gbtags.com/summernote/0.5.2/summernote.css" rel="stylesheet">
+    <link href="http://cdn.gbtags.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <link href="/css/bootstrap-datetimepicker.min.css" rel="stylesheet" media="screen">
+
+
+</head>
+<body>
+
+<div class="container">
+    <div class="row">
+        <div class="span12">
+            <div class="page-header">
+                <h1>
+                    活动创建
+                </h1>
+            </div>
+            <div class="col-md-9">
+                <form class="form-horizontal" method="POST">
+                    <input type="hidden" id="action" name="action" value="createOrUpdate">
+
+                    <input type="hidden" name="${_csrf.parameterName}"
+                           value="${_csrf.token}" />
+                    <input type="hidden" id="beginTime" name="beginTime" value="$!{activity.beginTime}" />
+                    <input type="hidden" id="endTime" name="endTime" value="$!{activity.endTime}" />
+                    <input type="hidden" id="activityDetail" name="activityDetail" value=""/>
+
+                    <div class="form-group">
+                        <label for="activityName">活动名</label>
+                        <input class="form-control" size="16" type="text" id="activityName" name="activityName" value="$!{activity.name}">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="beginTime" class="control-label">开始时间</label>
+                        <div class="input-group date form_datetime col-md-5" data-link-field="beginTime">
+                            <input class="form-control" size="16" type="text" value="$!{activity.beginTime}" readonly>
+                            <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+                            <span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
+                        </div>
+
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="endTime" class="control-label">结束时间</label>
+                        <div class="input-group date form_datetime col-md-5" data-link-field="endTime">
+                            <input class="form-control" size="16" type="text" value="$!{activity.endTime}" readonly>
+                            <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+                            <span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="summernote">具体细节</label>
+                        <div id="summernote">
+                            ${activity.desc}
+                        </div>
+
+                    </div>
+
+
+                    <button type="submit" class="btn btn-success" onclick="doCreate()">保存</button>
+
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+<script src="http://cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+<script src="http://cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+<script src="http://cdn.gbtags.com/summernote/0.5.2/summernote.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.js"></script>
+
+<script type="text/javascript" src="/js/bootstrap-datetimepicker.js" charset="UTF-8"></script>
+<script type="text/javascript" src="/js/locales/bootstrap-datetimepicker.zh-CN.js" charset="UTF-8"></script>
+
+<script type="text/javascript">
+
+    $('#summernote').summernote({
+        onImageUpload:function(files,editor,$editable){
+            sendImage(files[0], editor, $editable)
+        }
+    });
+
+    function sendImage(file,editor,$editable){
+        data = new FormData();
+        data.append("file", file);
+        var token = $("meta[name='_csrf']").attr("content");
+        var header = $("meta[name='_csrf_header']").attr("content");
+
+        $.ajax({
+            data: data,
+            type: "POST",
+            url: "/img/uploads",
+            cache: false,
+            processData: false,
+            contentType: "application/json; charset=utf-8",
+            datatype:'json',
+            beforeSend: function(xhr) {xhr.setRequestHeader(header, token)},
+            success: function(data) {
+                console.log(data);
+                $('#summernote').summernote('editor.insertImage', data.url);
+            }                                                               ,
+            error:function(data){
+                console.log(data);
+            }
+        });
+
+    }
+
+</script>
+
+
+
+<script type="text/javascript">
+    $(".form_datetime").datetimepicker(
+            {
+                language:  'zh-CN',
+                format: "yyyy-mm-dd",
+                weekStart: 1,
+                todayBtn:  true,
+                autoclose: true,
+                todayHighlight: true,
+                minView:2
+            }
+    );
+</script>
+
+<script>
+    function doCreate(){
+        $("#activityDetail").val($("#summernote").code());
+        this.parent.submit;
+    }
+</script>
+
+
+
+</body>
+</html>

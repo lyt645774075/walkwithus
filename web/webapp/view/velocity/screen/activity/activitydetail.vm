@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>WithUS</title>
+
+    <!-- 新 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <!-- 可选的Bootstrap主题文件（一般不用引入） -->
+    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+
+
+</head>
+<body>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="jumbotron">
+
+                <div class="page-header">
+                    <h2>${activity.name}<small>（${activity.beginTime} - ${activity.endTime}）</small></h2>
+                </div>
+
+                #if($!activity.currentUserRole == 0)
+                    <button type="button" class="btn btn-link">
+                        <a href="/user/applyJoinIn?activityId=${activity.id}">申请加入</a>
+                    </button>
+                #end
+                #if($!activity.currentUserRole == 1)
+                    审核中
+                #end
+
+                #if($!activity.currentUserRole == 10 || $!activity.currentUserRole == 11)
+                    <button type="button" class="btn btn-link">
+                        <a href="/activity/account?activityId=${activity.id}">财务流水</a>
+                    </button>
+                #end
+                #if($activity.currentUserRole == 11)
+                    <button type="button" class="btn btn-link">
+                        <a href="/activity/modify?activityId=${activity.id}">编辑活动</a>
+                    </button>
+                #end
+                #if($activity.currentUserRole == 11)
+                    <button type="button" class="btn btn-link">
+                        <a href="/activity/adminMember?activityId=${activity.id}">人员管理</a>
+                    </button>
+                #end
+
+
+            </div>
+
+            <div class="row">
+                <div class="col-md-8">
+                    ${activity.desc}
+
+                </div>
+                <div class="col-md-4">
+
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">获奖者</h3>
+                        </div>
+                        <div class="panel-body">
+
+
+                            <ul>
+                                <li>
+                                    李洋涛（06高8班）
+                                </li>
+                                <li>
+                                    李洋涛（06高8班）
+                                </li>
+                                <li>
+                                    李洋涛（06高8班）
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">资助者</h3>
+                        </div>
+                        <div class="panel-body">
+                            <ul>
+                                #foreach($!member in $!memberList)
+                                    <li>
+                                        <a href="/user/home?id=$!{member.userId}">$!{member.userName}</a>
+                                    </li>
+                                #end
+
+
+                            </ul>
+                        </div>
+                    </div>
+
+
+
+
+                    <div class="row">
+                        <div class="col-md-12">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+<script src="http://cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+<script src="http://cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+
+</body>
+</html>

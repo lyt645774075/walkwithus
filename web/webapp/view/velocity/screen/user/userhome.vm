@@ -1,0 +1,7 @@
+这是你的个人主页！</br>
+but 工程师还在考虑做成什么样，所以。只纯文本显示你的用户信息  </br>
+
+用户名：$!{user.name}               </br>
+Email: $!{user.email}          </br>
+性别：  $!{user.sex}           </br>
+电话：  $!{user.phone}         </br>
