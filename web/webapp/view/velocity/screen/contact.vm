@@ -1,1 +1,6 @@
-请写下你的宝贵建议和联系方式，我将看到消息后，第一时间联系您。
+#set($layout="layout/thomsoon.vm")
+
+    <div class="text-intro">
+
+        <h1>任何问题,请联系我.  QQ:645774075</h1>
+    </div>

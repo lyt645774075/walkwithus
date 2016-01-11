@@ -18,22 +18,37 @@ import org.springframework.web.bind.annotation.RequestMethod;
  */
 
 @Controller
-@RequestMapping("/")
 public class WebHomeController {
+
+    /** 网站首页 */
+    private static final String WEB_HOME_VIEW = "screen/webhome";
+
+    private static final String ABOUT_US_VIEW = "screen/aboutus";
+
+    private static final String CONTACT_VIEW = "screen/contact";
+
 
     @Autowired
     private ActivityManager activityManager;
 
-    @RequestMapping(method = RequestMethod.GET)
-    public String doGet(ModelMap modelMap){
+    @RequestMapping(value = "/", method = RequestMethod.GET)
+    public String doGetHome(ModelMap modelMap){
 
         String testStr = activityManager.testStr();
-
         modelMap.addAttribute("testStr", testStr);
-
-        return "screen/webhome";
+        return WEB_HOME_VIEW;
     }
 
+    @RequestMapping(value = "/aboutus")
+    public String doGetAboutUs(){
+        return ABOUT_US_VIEW;
+    }
+
+
+    @RequestMapping(value = "/contact")
+    public String doGetContact(){
+        return CONTACT_VIEW;
+    }
 
 
 

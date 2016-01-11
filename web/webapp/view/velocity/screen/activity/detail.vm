@@ -1,0 +1,82 @@
+#set($layout="layout/thomsoon.vm")
+
+<div class="text-intro">
+
+    <h1>校友助学金</h1>
+
+
+    <div class="one-column">
+        <div>
+            <label>所属团队:</label>
+            <span>简阳中学06高火箭班联盟</span>
+        </div>
+
+        </br>
+        <div>
+            <label>活动时间:</label>
+            <span>2015.9.10 - 至今</span>
+        </div>
+
+        </br>
+        <div width="80%">
+            <label>参与者:</label></br>
+            <span><a href="user/detail" tartget="_blank">李政霖</a></span>
+            <span><a href="user/detail" tartget="_blank">黄平</a></span>
+            <span><a href="user/detail" tartget="_blank">付学友</a></span>
+            <span><a href="user/detail" tartget="_blank">吴波</a></span>
+            <span><a href="user/detail" tartget="_blank">付颖玥</a></span>
+            <span><a href="user/detail" tartget="_blank">毛玉霞</a></span>
+            <span><a href="user/detail" tartget="_blank">辜良宇</a></span>
+            <span><a href="user/detail" tartget="_blank">陈立</a></span>
+            <span><a href="user/detail" tartget="_blank">陈飞</a></span>
+            <span><a href="user/detail" tartget="_blank">罗泗勇</a></span>
+            <span><a href="user/detail" tartget="_blank">杨建超</a></span>
+            <span><a href="user/detail" tartget="_blank">李洋涛</a></span>
+            <span><a href="user/detail" tartget="_blank">罗正发</a></span>
+            <span><a href="user/detail" tartget="_blank">解澜</a></span>
+            <span><a href="user/detail" tartget="_blank">王子静</a></span>
+            <span><a href="user/detail" tartget="_blank">段聪</a></span>
+            <span><a href="user/detail" tartget="_blank">卿科</a></span>
+            <span><a href="user/detail" tartget="_blank">鲁虹伟</a></span>
+            <span><a href="user/detail" tartget="_blank">牟洁</a></span>
+            <span><a href="user/detail" tartget="_blank">苏愿</a></span>
+            <span><a href="user/detail" tartget="_blank">李俊聪</a></span>
+            <span><a href="user/detail" tartget="_blank">赵巧</a></span>
+            <span><a href="user/detail" tartget="_blank">易俊芳</a></span>
+            <span><a href="user/detail" tartget="_blank">毛小林</a></span>
+            <span><a href="user/detail" tartget="_blank">冯波</a></span>
+            <span><a href="user/detail" tartget="_blank">冯锦明</a></span>
+            <span><a href="user/detail" tartget="_blank">付润</a></span>
+            <span><a href="user/detail" tartget="_blank">曾德军</a></span>
+            <span><a href="user/detail" tartget="_blank">丁勇</a></span>
+        </div>
+
+
+    </div>
+
+
+    <div class="two-column">
+        <p>此活动是由简阳中学已毕业的06级校友发起,以奖金的形式帮助品学兼优的师弟师妹更好的完成学业,饮水思源,不忘初心.</p>
+        <p>第一期获奖者:</p>
+    </div>
+
+    <div class="clear"></div>
+
+    <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+
+    <img src="/img/tmp/1.jpg" width="100%"><br/><br/><br/><br/>
+    <img src="/img/tmp/2.jpg" width="100%"><br/><br/><br/><br/>
+    <img src="/img/tmp/3.jpg" width="100%"><br/><br/><br/><br/>
+    <img src="/img/tmp/4.jpg" width="100%"><br/><br/><br/><br/>
+    <img src="/img/tmp/5.jpg" width="100%"><br/><br/><br/><br/>
+    <img src="/img/tmp/6.jpg" width="100%">
+
+
+    <div class="prev-next">
+
+        <div class="prev-button"><a class="ajax-link" href="single-fullscreen.html">Previous work</a></div>
+        <div class="next-button"><a class="ajax-link" href="projects.html">Next work</a></div>
+
+    </div>
+</div>
+        

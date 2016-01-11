@@ -1,0 +1,90 @@
+#set($layout="layout/thomsoon.vm")
+
+<div class="text-intro">
+
+    <h1><label>热门活动</label></h1>
+
+    <p>选择你喜欢的,加入她!</p>
+
+</div>
+
+
+<!--Portfolio grid-->
+
+<ul class="portfolio-grid">
+
+
+    <li class="grid-item" data-jkit="[show:delay=300;speed=500;animation=fade]">
+        <img src="/img/tmp/1.jpg">
+        <a class="ajax-link" href="/activity/detail?id=1">
+            <div class="grid-hover">
+                <h1>校友助学金</h1>
+
+                <p>2015.9.10-至今</p>
+            </div>
+        </a>
+    </li>
+
+    <li class="grid-item" data-jkit="[show:delay=300;speed=500;animation=fade]">
+        <img src="/img/tmp/5.jpg">
+        <a class="ajax-link" href="/activity/detail?id=1">
+            <div class="grid-hover">
+                <h1>十周年同学会</h1>
+
+                <p>2016.6.6-2016.6.6</p>
+            </div>
+        </a>
+    </li>
+    <li class="grid-item" data-jkit="[show:delay=300;speed=500;animation=fade]">
+        <img src="/img/portfolio/2.jpg">
+        <a class="ajax-link" href="#">
+            <div class="grid-hover">
+                <h1>广告位招商</h1>
+
+                <p>******</p>
+            </div>
+        </a>
+    </li>
+    <li class="grid-item" data-jkit="[show:delay=300;speed=500;animation=fade]">
+        <img src="/img/portfolio/2.jpg">
+        <a class="ajax-link" href="#">
+            <div class="grid-hover">
+                <h1>广告位招商</h1>
+
+                <p>******</p>
+            </div>
+        </a>
+    </li>
+    <li class="grid-item" data-jkit="[show:delay=300;speed=500;animation=fade]">
+        <img src="/img/portfolio/2.jpg">
+        <a class="ajax-link" href="#">
+            <div class="grid-hover">
+                <h1>广告位招商</h1>
+
+                <p>******</p>
+            </div>
+        </a>
+    </li>
+    <li class="grid-item" data-jkit="[show:delay=300;speed=500;animation=fade]">
+        <img src="/img/portfolio/2.jpg">
+        <a class="ajax-link" href="#">
+            <div class="grid-hover">
+                <h1>广告位招商</h1>
+
+                <p>******</p>
+            </div>
+        </a>
+    </li>
+    <li class="grid-item" data-jkit="[show:delay=300;speed=500;animation=fade]">
+        <img src="/img/portfolio/2.jpg">
+        <a class="ajax-link" href="#">
+            <div class="grid-hover">
+                <h1>广告位招商</h1>
+
+                <p>******</p>
+            </div>
+        </a>
+    </li>
+
+
+</ul>

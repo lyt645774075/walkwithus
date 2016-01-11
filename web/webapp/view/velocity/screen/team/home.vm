@@ -1,0 +1,3 @@
+#set($layout="layout/thomsoon.vm")
+
+<div class="text-intro">暂未开放</div>

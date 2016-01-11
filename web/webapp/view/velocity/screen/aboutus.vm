@@ -1,0 +1,118 @@
+#set($layout="layout/thomsoon.vm")
+
+
+<div class="text-intro">
+
+    <h1>About us</h1>
+
+    <div class="one-column">
+        <p>Front-End Developer | UI/Web Designer | Video Producer</p>
+
+    </div>
+
+
+    <div class="two-column">
+
+        <p>Hello, my name is Tomasz Mazurczak. I'm freelancer. I invite you to look at my work and thanks for liking the
+            project.<br/><br/>
+
+            Full corporate identity visual with various versions of the logo. The creative combination of letters of the
+            company name: Bespoke Creative LTD. (B+C+L) gave the following effects work. We used soft nude shades colors
+            which added prestige. Website done in HTML5 + CSS3 responsive version.
+            <br/><br/>
+            I encourage you to watch the presentation.
+
+        </p>
+
+    </div>
+
+
+</div>
+
+<div class="clear"></div>
+
+<div class="text-intro" id="site-type">
+
+    <h1>Logo design</h1>
+
+    <p>All project is clean and simplicity modern style.</p>
+
+</div>
+
+
+<!--Portfolio grid-->
+
+<ul class="portfolio-grid">
+
+
+    <li class="grid-item" data-jkit="[show:delay=3000;speed=500;animation=fade]">
+        <img src="img/logo/1.jpg">
+        <a class="ajax-link" href="single.html">
+            <div class="grid-hover">
+                <h1>Single</h1>
+
+                <p>Branding</p>
+            </div>
+        </a>
+    </li>
+
+    <li class="grid-item" data-jkit="[show:delay=3000;speed=500;animation=fade]">
+        <img src="img/logo/2.jpg">
+        <a class="ajax-link" href="single.html">
+            <div class="grid-hover">
+                <h1>Single</h1>
+
+                <p>Branding</p>
+            </div>
+        </a>
+    </li>
+
+    <li class="grid-item" data-jkit="[show:delay=3000;speed=500;animation=fade]">
+        <img src="img/logo/3.jpg">
+        <a class="ajax-link" href="single.html">
+            <div class="grid-hover">
+                <h1>Single</h1>
+
+                <p>Branding</p>
+            </div>
+        </a>
+    </li>
+
+    <li class="grid-item" data-jkit="[show:delay=3000;speed=500;animation=fade]">
+        <img src="img/logo/4.jpg">
+        <a class="ajax-link" href="single.html">
+            <div class="grid-hover">
+                <h1>Single</h1>
+
+                <p>Branding</p>
+            </div>
+        </a>
+    </li>
+
+    <li class="grid-item" data-jkit="[show:delay=3000;speed=500;animation=fade]">
+        <img src="img/logo/5.jpg">
+        <a class="ajax-link" href="single.html">
+            <div class="grid-hover">
+                <h1>Single</h1>
+
+                <p>Branding</p>
+            </div>
+        </a>
+    </li>
+
+    <li class="grid-item" data-jkit="[show:delay=3000;speed=500;animation=fade]">
+        <img src="img/logo/6.jpg">
+        <a class="ajax-link" href="single.html">
+            <div class="grid-hover">
+                <h1>Single</h1>
+
+                <p>Branding</p>
+            </div>
+        </a>
+    </li>
+
+</ul>
+
+
+
+
