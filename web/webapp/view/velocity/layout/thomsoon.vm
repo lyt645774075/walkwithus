@@ -64,7 +64,7 @@
         <ul class="header-nav">
             <li><a class="ajax-link" href="/team/home">团队</a></li>
 
-            <li><a class="ajax-link" href="/team/activity">活动</a></li>
+            <li><a class="ajax-link" href="/activity/home">活动</a></li>
             <li><a class="ajax-link" href="/aboutus">关于</a></li>
             <li><a class="ajax-link" href="/contact">联系</a></li>
         </ul>
