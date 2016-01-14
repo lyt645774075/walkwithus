@@ -24,7 +24,7 @@
 
     
     <li class="grid-item" data-jkit="[show:delay=100;speed=500;animation=fade]">
-      <img src="img/tmp/1.jpg">
+      <img src="img/tmp/1_ys.jpg">
         <a class="ajax-link" href="single.html">  
           <div class="grid-hover">
             <h1>Single</h1>
@@ -34,7 +34,7 @@
     </li>
 
     <li class="grid-item" data-jkit="[show:delay=100;speed=500;animation=fade]">
-      <img src="img/1.jpg">
+      <img src="img/tmp/2_ys.jpg">
         <a class="ajax-link" href="single.html">  
           <div class="grid-hover">
             <h1>Single</h1>
@@ -44,7 +44,7 @@
     </li>    
     
     <li class="grid-item" data-jkit="[show:delay=100;speed=500;animation=fade]">
-      <img src="img/tmp/2.jpg">
+      <img src="img/tmp/3_ys.jpg">
         <a class="ajax-link" href="single.html">  
           <div class="grid-hover">
             <h1>Single</h1>
@@ -54,7 +54,7 @@
     </li>  
     
     <li class="grid-item" data-jkit="[show:delay=100;speed=500;animation=fade]">
-      <img src="img/tmp/3.jpg">
+      <img src="img/tmp/4_ys.jpg">
         <a class="ajax-link" href="single.html">  
           <div class="grid-hover">
             <h1>Single</h1>
@@ -64,7 +64,7 @@
     </li>    
 
     <li class="grid-item" data-jkit="[show:delay=100;speed=500;animation=fade]">
-      <img src="img/tmp/4.jpg">
+      <img src="img/tmp/5_ys.jpg">
         <a class="ajax-link" href="single.html">  
           <div class="grid-hover">
             <h1>Single</h1>
@@ -74,7 +74,7 @@
     </li>    
 
     <li class="grid-item" data-jkit="[show:delay=100;speed=500;animation=fade]">
-      <img src="img/tmp/6.jpg">
+      <img src="img/tmp/6_ys.jpg">
         <a class="ajax-link" href="single.html">  
           <div class="grid-hover">
             <h1>Single</h1>

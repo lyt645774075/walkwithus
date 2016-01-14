@@ -64,18 +64,23 @@
 
     <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 
-    <img src="/img/tmp/1.jpg" width="100%"><br/><br/><br/><br/>
-    <img src="/img/tmp/2.jpg" width="100%"><br/><br/><br/><br/>
-    <img src="/img/tmp/3.jpg" width="100%"><br/><br/><br/><br/>
-    <img src="/img/tmp/4.jpg" width="100%"><br/><br/><br/><br/>
-    <img src="/img/tmp/5.jpg" width="100%"><br/><br/><br/><br/>
-    <img src="/img/tmp/6.jpg" width="100%">
+    <img src="/img/tmp/1_ys.jpg" width="100%"><br/><br/><br/><br/>
+    <img src="/img/tmp/2_ys.jpg" width="100%"><br/><br/><br/><br/>
+    <img src="/img/tmp/3_ys.jpg" width="100%"><br/><br/><br/><br/>
+    <img src="/img/tmp/4_ys.jpg" width="100%"><br/><br/><br/><br/>
+    <img src="/img/tmp/5_ys.jpg" width="100%"><br/><br/><br/><br/>
+    <img src="/img/tmp/6_ys.jpg" width="100%"><br/><br/><br/><br/>
+    <img src="/img/tmp/7_ys.jpg" width="100%"><br/><br/><br/><br/>
+    <img src="/img/tmp/8_ys.jpg" width="100%"><br/><br/><br/><br/>
+    <img src="/img/tmp/9_ys.jpg" width="100%"><br/><br/><br/><br/>
+    <img src="/img/tmp/10_ys.jpg" width="100%"><br/><br/><br/><br/>
+    <img src="/img/tmp/11_ys.jpg" width="100%">
 
 
     <div class="prev-next">
 
-        <div class="prev-button"><a class="ajax-link" href="single-fullscreen.html">Previous work</a></div>
-        <div class="next-button"><a class="ajax-link" href="projects.html">Next work</a></div>
+        <div class="prev-button"><a class="ajax-link" href="/activity/home">Previous work</a></div>
+        <div class="next-button"><a class="ajax-link" href="/activity/home">Next work</a></div>
 
     </div>
 </div>
