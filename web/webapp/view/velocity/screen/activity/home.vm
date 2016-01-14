@@ -14,7 +14,7 @@
 <ul class="portfolio-grid">
 
 
-    <li class="grid-item" data-jkit="[show:delay=300;speed=500;animation=fade]">
+    <li class="grid-item" data-jkit="[show:delay=0;speed=500;animation=fade]">
         <img src="/img/tmp/1_ys.jpg">
         <a class="ajax-link" href="/activity/detail?id=1">
             <div class="grid-hover">
@@ -25,7 +25,7 @@
         </a>
     </li>
 
-    <li class="grid-item" data-jkit="[show:delay=300;speed=500;animation=fade]">
+    <li class="grid-item" data-jkit="[show:delay=0;speed=500;animation=fade]">
         <img src="/img/tmp/5_ys.jpg">
         <a class="ajax-link" href="/activity/detail?id=1">
             <div class="grid-hover">
@@ -35,7 +35,7 @@
             </div>
         </a>
     </li>
-    <li class="grid-item" data-jkit="[show:delay=300;speed=500;animation=fade]">
+    <li class="grid-item" data-jkit="[show:delay=0;speed=500;animation=fade]">
         <img src="/img/portfolio/2.jpg">
         <a class="ajax-link" href="#">
             <div class="grid-hover">
@@ -45,7 +45,7 @@
             </div>
         </a>
     </li>
-    <li class="grid-item" data-jkit="[show:delay=300;speed=500;animation=fade]">
+    <li class="grid-item" data-jkit="[show:delay=0;speed=500;animation=fade]">
         <img src="/img/portfolio/2.jpg">
         <a class="ajax-link" href="#">
             <div class="grid-hover">
@@ -55,7 +55,7 @@
             </div>
         </a>
     </li>
-    <li class="grid-item" data-jkit="[show:delay=300;speed=500;animation=fade]">
+    <li class="grid-item" data-jkit="[show:delay=0;speed=500;animation=fade]">
         <img src="/img/portfolio/2.jpg">
         <a class="ajax-link" href="#">
             <div class="grid-hover">
@@ -65,7 +65,7 @@
             </div>
         </a>
     </li>
-    <li class="grid-item" data-jkit="[show:delay=300;speed=500;animation=fade]">
+    <li class="grid-item" data-jkit="[show:delay=0;speed=500;animation=fade]">
         <img src="/img/portfolio/2.jpg">
         <a class="ajax-link" href="#">
             <div class="grid-hover">
@@ -75,7 +75,7 @@
             </div>
         </a>
     </li>
-    <li class="grid-item" data-jkit="[show:delay=300;speed=500;animation=fade]">
+    <li class="grid-item" data-jkit="[show:delay=0;speed=500;animation=fade]">
         <img src="/img/portfolio/2.jpg">
         <a class="ajax-link" href="#">
             <div class="grid-hover">

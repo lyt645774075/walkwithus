@@ -1,5 +1,9 @@
 #set($layout="layout/thomsoon.vm")
 
+<style>
+    span a{ color:#8d8d8d;margin-top: 4px;display: inline-block}
+</style>
+
 <div class="text-intro">
 
     <h1>校友助学金</h1>
@@ -18,7 +22,7 @@
         </div>
 
         </br>
-        <div width="80%">
+        <div style="width:70%">
             <label>参与者:</label></br>
             <span><a href="user/detail" tartget="_blank">李政霖</a></span>
             <span><a href="user/detail" tartget="_blank">黄平</a></span>
@@ -51,13 +55,24 @@
             <span><a href="user/detail" tartget="_blank">丁勇</a></span>
         </div>
 
+        <div class="prev-next" style="padding-top: 50px;">
+            <a class="ajax-link" href="/activity/accountInfo" style="color:darkgreen">财务流水</a>
+        </div>
+
 
     </div>
 
 
     <div class="two-column">
-        <p>此活动是由简阳中学已毕业的06级校友发起,以奖金的形式帮助品学兼优的师弟师妹更好的完成学业,饮水思源,不忘初心.</p>
-        <p>第一期获奖者:</p>
+        <span><p>此活动是由简阳中学已毕业的06级校友发起,以奖金的形式帮助品学兼优的师弟师妹更好的完成学业,饮水思源,不忘初心.</p></span>
+        <p><span>第一期获奖者:</span></p>
+        付全(16高07班),杨婷(16高07班),卿莉(16高07班),史翼豪(16高08班),殷利华(16高08班),
+            秦浩(16高10班),蒋勇(16高10班),江澜涛(16高11班),周慧雨(16高11班),蔡宇昊(16高12班),
+            江澜江(16高12班),杨苏鹏(16高13班),段小强(16高30班),李雨宏(16高30班),周银春(16高30班),
+            王瑶菡(17高01班),杨鑫(17高01班),李梅(17高01班),廖华兵(17高01班),李清霞(17高01班),
+            唐迪(17高02班),王玲(17高02班),杨文斌(17高02班),冯钟(17高02班),李雯(17高02班),罗奇(17高06班),
+            陈章(17高08班),叶伟(17高29班),谭静(17高29班)
+
     </div>
 
     <div class="clear"></div>
