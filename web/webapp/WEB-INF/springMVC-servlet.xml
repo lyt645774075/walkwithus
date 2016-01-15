@@ -25,6 +25,10 @@
 				   location="/assets/js/"/>
 	<mvc:resources mapping="/img/**"
 				   location="/assets/img/"/>
+	<mvc:resources mapping="/font-awesome/**"
+				   location="/assets/font-awesome/"/>
+	<mvc:resources mapping="/other/**"
+				   location="/assets/other/"/>
 	<mvc:default-servlet-handler />
 
 

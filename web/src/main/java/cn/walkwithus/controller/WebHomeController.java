@@ -27,6 +27,8 @@ public class WebHomeController {
 
     private static final String CONTACT_VIEW = "screen/contact";
 
+    private static final String LOGIN_VIEW = "screen/login";
+
 
     @Autowired
     private ActivityManager activityManager;
@@ -48,6 +50,11 @@ public class WebHomeController {
     @RequestMapping(value = "/contact")
     public String doGetContact(){
         return CONTACT_VIEW;
+    }
+
+    @RequestMapping(value = "/login")
+    public String doGetLogin(){
+        return LOGIN_VIEW;
     }
 
 
