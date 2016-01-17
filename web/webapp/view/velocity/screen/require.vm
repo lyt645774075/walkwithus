@@ -1,0 +1,70 @@
+#set($layout="layout/thomsoon.vm")
+
+<div class="text-intro">
+
+    <h1>我要加需求</h1>
+    <p style="color: green;">$!sysMsg</p>
+
+    <form method="post" accept-charset="utf-8">
+        <input type="hidden" name="action" value="create">
+
+        <input type="hidden" name="${_csrf.parameterName}"
+               value="${_csrf.token}" />
+
+        <div class="contact-one" style="width:100%">
+            <p>
+                <textarea id="desc" name="desc" placeholder="描述您想要的功能，我来为您完成..."></textarea>
+
+                <input class="button-submit" name="send" type="submit" value="提交" />
+            </p>
+        </div>
+    </form>
+</div>
+
+
+<div class="text-intro">
+
+    <h1>已有需求</h1>
+    <table style="width:100%;text-align:center">
+
+        <thead style="color:#8d8d8d">
+
+        <th>序号</th>
+        <th>创建人</th>
+        <th>创建时间</th>
+        <th>需求描述</th>
+        <th>当前状态</th>
+        <th>处理人</th>
+        <th>备注</th>
+
+        </thead>
+
+        <tbody>
+
+            #foreach($require in $!requireList)
+            <tr>
+                <td>$velocityCount</td>
+                <td>$!require.creatorNick</td>
+                <td>$!require.gmtCreate</td>
+                <td>$!require.desc</td>
+                <td style="color:#if($!require.status.code== "已完成") green;
+                    #else
+                    red;
+                #end">
+                    $!require.status.label
+                </td>
+                <td>$!require.acceptor</td>
+                <td>$!memo</td>
+            </tr>
+
+            #end
+
+        </tbody>
+
+    </table>
+
+</div>
+
+<br/><br/><br/><br/>
+<br/><br/><br/><br/>
+</div>

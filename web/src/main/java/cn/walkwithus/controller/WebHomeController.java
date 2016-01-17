@@ -5,12 +5,23 @@
 
 package cn.walkwithus.controller;
 
-import cn.walkwithus.manager.ActivityManager;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+
+import cn.walkwithus.domain.RequireBO;
+import cn.walkwithus.manager.ActivityManager;
+import cn.walkwithus.manager.RequireManager;
+import org.springframework.web.bind.annotation.RequestParam;
+import security.UserAuthDetail;
+import support.LoginDetailUtil;
 
 /**
  * @author yangtao.lyt
@@ -29,15 +40,23 @@ public class WebHomeController {
 
     private static final String LOGIN_VIEW = "screen/login";
 
+    private static final String REQUIRE_VIEW = "screen/require";
+
 
     @Autowired
     private ActivityManager activityManager;
 
+    @Autowired
+    private RequireManager requireManager;
+
+
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String doGetHome(ModelMap modelMap){
 
-        String testStr = activityManager.testStr();
-        modelMap.addAttribute("testStr", testStr);
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+
+        modelMap.addAttribute("authentication", authentication);
+
         return WEB_HOME_VIEW;
     }
 
@@ -57,6 +76,47 @@ public class WebHomeController {
         return LOGIN_VIEW;
     }
 
+
+    @RequestMapping(value = "/require")
+    public String doGetRequire(ModelMap modelMap){
+
+        List<RequireBO> requireBOList = requireManager.queryAll();
+
+        modelMap.addAttribute("requireList", requireBOList);
+
+        return REQUIRE_VIEW;
+    }
+
+    @RequestMapping(value = "/require", method = RequestMethod.POST, params = "action=create")
+    public String doCreateRequire(@RequestParam("desc") String desc, ModelMap modelMap){
+
+        if(StringUtils.isEmpty(desc)){
+            modelMap.addAttribute("sysMsg", "需求描述不能为空");
+            return REQUIRE_VIEW;
+        }
+
+
+
+        UserAuthDetail userAuthDetail = LoginDetailUtil.getLoginDetail();
+        if(userAuthDetail == null){
+            modelMap.addAttribute("desc", desc);
+            modelMap.addAttribute("sysMsg", "您需要先登录,才能创建需求!");
+
+            List<RequireBO> requireBOList = requireManager.queryAll();
+            modelMap.addAttribute("requireList", requireBOList);
+
+            return REQUIRE_VIEW;
+        }
+
+        RequireBO requireBO = new RequireBO();
+        requireBO.setDesc(desc.trim());
+        requireBO.setCreator(userAuthDetail.getUsername());
+        requireBO.setCreatorNick(userAuthDetail.getNickname());
+
+        requireManager.createRequire(requireBO);
+
+        return "redirect:/require";
+    }
 
 
 

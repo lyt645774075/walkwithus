@@ -2,7 +2,7 @@
     // Namespace all events.
     var eventNamespace = 'waitForImages';
 
-    // CSS properties which contain references to images.
+    // CSS property which contain references to images.
     $.waitForImages = {
         hasImageProperties: [
             'backgroundImage',
@@ -77,7 +77,7 @@
             // be considered.
             var obj = $(this);
             var allImgs = [];
-            // CSS properties which may contain an image.
+            // CSS property which may contain an image.
             var hasImgProperties = $.waitForImages.hasImageProperties || [];
             // Element attributes which may contain an image.
             var hasImageAttributes = $.waitForImages.hasImageAttributes || [];

@@ -180,11 +180,11 @@ header.boxed{
   display:none;
   background:none;
   top:0;
-    -webkit-transition: background 0.2s ease-in;
-	-moz-transition: background 0.2s ease-in;
-	-ms-transition: background 0.2s ease-in;
-	-o-transition: background 0.2s ease-in;
-	transition: background 0.2s ease-in; 
+    -webkit-transition: background 0s ease-in;
+	-moz-transition: background 0s ease-in;
+	-ms-transition: background 0s ease-in;
+	-o-transition: background 0s ease-in;
+	transition: background 0s ease-in;
 }
 
 header.boxed .header-margin{

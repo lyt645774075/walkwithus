@@ -22,8 +22,7 @@ public class ActivityController {
     /** 活动详情页 */
     private static final String DETAIL_VIEW = "screen/activity/detail";
 
-    /** 活动账务情况 */
-    private static final String ACCOUNT_INFO_VIEW = "screen/activity/accountinfo";
+
 
     @RequestMapping("/home")
     public String doGetHome(){
@@ -36,10 +35,7 @@ public class ActivityController {
         return DETAIL_VIEW;
     }
 
-    @RequestMapping(value = "/accountinfo")
-    public String doGetAccountInfo(){
-        return ACCOUNT_INFO_VIEW;
-    }
+
 
 
 
