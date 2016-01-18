@@ -50,8 +50,8 @@
               </authentication-provider>
        </authentication-manager>
 
-    <beans:bean id="authorizationListener"
-                class="org.springframework.security.access.event.LoggerListener" />
+    <!--<beans:bean id="authorizationListener"
+                class="org.springframework.security.access.event.LoggerListener" />-->
 
    <!-- <beans:bean class="org.springframework.security.web.authentication.rememberme.TokenBasedRememberMeServices">
         <beans:constructor-arg name="key" value="llyytt"/>
