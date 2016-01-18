@@ -15,7 +15,7 @@
             <p>
                 <textarea id="desc" name="desc" placeholder="描述您想要的功能，我来为您完成..."></textarea>
 
-                <input class="button-submit" name="send" type="submit" value="提交" />
+                <input class="button-submit" name="send" type="submit" value="提交" style="background-color: orange;font-size: larger"/>
             </p>
         </div>
     </form>

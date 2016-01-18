@@ -80,9 +80,9 @@ public class WebHomeController {
     @RequestMapping(value = "/require")
     public String doGetRequire(ModelMap modelMap){
 
-        List<RequireBO> requireBOList = requireManager.queryAll();
+        //List<RequireBO> requireBOList = requireManager.queryAll();
 
-        modelMap.addAttribute("requireList", requireBOList);
+        //modelMap.addAttribute("requireList", requireBOList);
 
         return REQUIRE_VIEW;
     }
