@@ -143,7 +143,7 @@ function backgroundmenu() {
 
          $(window).scroll(function(){
             if ($(this).scrollTop() > 10) {
-                $('header').css( "background", "white" );
+                $('header').css( "background", "#f1f1f1" );
                 $('header .logo > a').css( "borderBottom", "0" );
 
             } else {
@@ -168,7 +168,7 @@ $(document).ready(function(){
 	setTimeout( function(){
 		if($("#site-type").length) {
         $(".typewrite span").typed({
-            strings: ["show case ", "projects "],
+            strings: ["一个人的故事 ", "一群人的传奇 "],
             typeSpeed: 100,
             backDelay: 500,
             loop: false,
