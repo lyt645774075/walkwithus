@@ -1,21 +1,19 @@
-package security;/*
+/*
+ * Alipay.com Inc.
+ * Copyright (c) 2004-2016 All Rights Reserved
+ */
+
+package cn.walkwithus.login;/*
 * Alipay.com Inc.
 * Copyright (c) 2004-2016 All Rights Reserved
 */
 
-import cn.walkwithus.domain.UserBO;
-import com.google.common.collect.Lists;
+import cn.walkwithus.dal.UserDAO;
+import cn.walkwithus.dal.dataobject.UserDO;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.core.userdetails.User;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
-
-import cn.walkwithus.manager.UserManager;
-
-import javax.annotation.Resource;
 
 /**
  * @author yangtao.lyt
@@ -26,18 +24,18 @@ import javax.annotation.Resource;
 public class UserAuthenticationService implements UserDetailsService {
 
     @Autowired
-    private UserManager userManager;
+    private UserDAO userDAO;
 
     @Override
     public UserAuthDetail loadUserByUsername(String userName) throws UsernameNotFoundException {
 
-        UserBO userBO = userManager.getUserByUserName(userName);
+        UserDO userDO = userDAO.findUserByUserName(userName);
 
         UserAuthDetail userAuthDetail = new UserAuthDetail();
-        userAuthDetail.setId(userBO.getId());
-        userAuthDetail.setUsername(userBO.getUserName());
-        userAuthDetail.setPassword(userBO.getPassWord());
-        userAuthDetail.setNickname(userBO.getNickName());
+        userAuthDetail.setId(userDO.getId());
+        userAuthDetail.setUsername(userDO.getUserName());
+        userAuthDetail.setPassword(userDO.getPassWord());
+        userAuthDetail.setNickname(userDO.getNickName());
 
         return userAuthDetail;
     }

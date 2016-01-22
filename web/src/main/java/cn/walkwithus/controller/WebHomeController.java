@@ -5,8 +5,10 @@
 
 package cn.walkwithus.controller;
 
-import java.util.List;
-
+import cn.walkwithus.domain.RequireBO;
+import cn.walkwithus.login.UserAuthDetail;
+import cn.walkwithus.manager.ActivityManager;
+import cn.walkwithus.manager.RequireManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -15,13 +17,10 @@ import org.springframework.ui.ModelMap;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-
-import cn.walkwithus.domain.RequireBO;
-import cn.walkwithus.manager.ActivityManager;
-import cn.walkwithus.manager.RequireManager;
 import org.springframework.web.bind.annotation.RequestParam;
-import security.UserAuthDetail;
 import support.LoginDetailUtil;
+
+import java.util.List;
 
 /**
  * @author yangtao.lyt

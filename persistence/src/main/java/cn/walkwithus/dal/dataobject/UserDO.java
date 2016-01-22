@@ -22,6 +22,8 @@ public class UserDO {
 
     private String nickName;
 
+    private String sex;
+
 
     public String getId() {
         return id;
@@ -53,5 +55,13 @@ public class UserDO {
 
     public void setNickName(String nickName) {
         this.nickName = nickName;
+    }
+
+    public String getSex() {
+        return sex;
+    }
+
+    public void setSex(String sex) {
+        this.sex = sex;
     }
 }

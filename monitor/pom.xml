@@ -14,36 +14,8 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>core</artifactId>
-    <name>core</name>
-
-
-
-
-    <dependencies>
-
-        <dependency>
-            <groupId>cn.walkwithus</groupId>
-            <artifactId>security</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
-
-        <dependency>
-            <groupId>cn.walkwithus</groupId>
-            <artifactId>monitor</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
-
-
-
-
-
-
-
-
-
-    </dependencies>
-
+    <artifactId>monitor</artifactId>
+    <name>monitor</name>
 
 
 </project>

@@ -24,10 +24,10 @@
 
 
            <!--登陆页面,注册页面不控制-->
-           <intercept-url pattern="/login*" access="hasRole('ANONYMOUS')"/>
+           <intercept-url pattern="/cn/walkwithus/login" access="hasRole('ANONYMOUS')"/>
            <intercept-url pattern="/register*" access="hasRole('ANONYMOUS')"/>
 
-            <form-login login-page="/login" default-target-url="/"
+            <form-login login-page="/cn/walkwithus/login" default-target-url="/"
                     login-processing-url="/login.do"
                     />
 
@@ -59,7 +59,7 @@
     </beans:bean>-->
 
 
-    <context:component-scan base-package="security"/>
+    <context:component-scan base-package="cn.walkwithus"/>
 
 
     <beans:bean id="rememberMeServices" class=

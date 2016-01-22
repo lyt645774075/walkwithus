@@ -3,7 +3,7 @@
  * Copyright (c) 2004-2016 All Rights Reserved
  */
 
-package security;
+package cn.walkwithus.login;
 
 import com.google.common.collect.Lists;
 import org.springframework.security.core.GrantedAuthority;

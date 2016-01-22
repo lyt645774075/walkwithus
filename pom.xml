@@ -27,6 +27,9 @@
     <modules>
         <module>web</module>
         <module>core</module>
+        <module>security</module>
+        <module>persistence</module>
+        <module>monitor</module>
     </modules>
 
 

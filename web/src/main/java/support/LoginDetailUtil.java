@@ -5,8 +5,9 @@
 
 package support;
 
+import cn.walkwithus.login.UserAuthDetail;
+
 import org.springframework.security.core.context.SecurityContextHolder;
-import security.UserAuthDetail;
 
 /**
  * @author yangtao.lyt
