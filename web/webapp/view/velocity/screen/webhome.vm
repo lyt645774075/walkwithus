@@ -1,87 +1,232 @@
-#set($layout="layout/thomsoon.vm")
+#set($layout="layout/modernbusiness.vm")
+
+<style type="text/css">
+    .brief-item{
+        background-color:white;
+        padding:10px;
+        margin-bottom:10px;
+    }
+
+</style>
+
+    <div class="row">
+        <div class="col-lg-12" >
+            <img class="img-responsive" src="/img/900x300.jpg" style="width: 100%" >
+        </div>
+    </div>
 
 
-<div class="text-intro" id="site-type">
 
-          <h1>Un amigo me llevó de la mano juntos Portfolio</h1>
-          <h1 class="typewrite"><span></span></h1>
-          <p>多少人走着却困在原地
-              多少人活着却如同死去
-              多少人爱着却好似分离
-              多少人笑着却满含泪滴
+    <div class="row">
 
-              谁知道我们该去向何处
-              谁明白生命已变为何物
-              是否找个借口继续苟活
-              或是展翅高飞保持愤怒
-              我该如何存在
+        <div class="col-md-8" >
 
-              </p>
+            <div class="row">
+                <div class="col-lg-12">
+                    <h3 class="page-header" style="border-bottom:2px solid #18BC9C">每日简讯
+                        <small></small>
+                    </h3>
+
+                </div>
+            </div>
+
+
+            <div class="brief-item">
+                <span class="glyphicon glyphicon-grain" style="color:green"></span>
+                <span class="glyphicon glyphicon-usd" style="color:green"></span>
+                <a href="/activity/home?id=1">06级校友奖学金</a>
+
+                <a class="btn pull-right">
+                    <span class="glyphicon glyphicon-qrcode pull-right" style=" margin:3px"></span>
+                </a>
+
+                <a class="btn pull-right">
+                    <span class="glyphicon glyphicon-eye-open" style=" margin:3px"></span>
+                    <span class="badge">42</span>
+                </a>
+                <a class="btn pull-right">
+                    <span class="glyphicon glyphicon-thumbs-down" style=" margin:3px"></span>
+                    <span class="badge">42</span>
+                </a>
+                <a class="btn pull-right">
+                    <span class="glyphicon glyphicon-thumbs-up" style=" margin:3px"></span>
+                    <span class="badge">42</span>
+                </a>
+
+                <p >
+                    <span class="glyphicon glyphicon-share-alt"></span>
+                    <a href="/team/home?id=1" class="small" >06级火箭班联盟</a>
+                </p>
+
+                <p>
+                    我在深圳宝安石岩一家电子厂上班，说实话出来就是找媳妇的，前两天我的一个老乡把厂牌给丢了，是一个妹子捡到了，结果俩人还谈上了，我也按我老乡的办法，我也把厂牌丢了，丢到女生宿舍出入处，妈的，等了三天都没人还我，还花了20元补办了厂牌。
+                </p>
+
+            </div>
+
+            <div class="brief-item">
+                <span class="glyphicon glyphicon-grain" style="color:green"></span>
+                <span class="glyphicon glyphicon-usd" style="color:green"></span>
+                <a href="/activity/home?id=1">06级校友奖学金</a>
+
+                <a class="btn pull-right">
+                    <span class="glyphicon glyphicon-qrcode pull-right" style=" margin:3px"></span>
+                </a>
+
+                <a class="btn pull-right">
+                    <span class="glyphicon glyphicon-eye-open" style=" margin:3px"></span>
+                    <span class="badge">42</span>
+                </a>
+                <a class="btn pull-right">
+                    <span class="glyphicon glyphicon-thumbs-down" style=" margin:3px"></span>
+                    <span class="badge">42</span>
+                </a>
+                <a class="btn pull-right">
+                    <span class="glyphicon glyphicon-thumbs-up" style=" margin:3px"></span>
+                    <span class="badge">42</span>
+                </a>
+
+                <p >
+                    <span class="glyphicon glyphicon-share-alt"></span>
+                    <a href="/team/home?id=1" class="small" >06级火箭班联盟</a>
+                </p>
+
+                <p>
+                    我在深圳宝安石岩一家电子厂上班，说实话出来就是找媳妇的，前两天我的一个老乡把厂牌给丢了，是一个妹子捡到了，结果俩人还谈上了，我也按我老乡的办法，我也把厂牌丢了，丢到女生宿舍出入处，妈的，等了三天都没人还我，还花了20元补办了厂牌。
+                </p>
+
+            </div>
+
+
+
+
+
+            <ul class="pager">
+                <li class="previous">
+                    <a href="#">← Older</a>
+                </li>
+                <li class="next">
+                    <a href="#">Newer →</a>
+                </li>
+            </ul>
 
         </div>
 
-<ul class="portfolio-grid">
 
-    
-    <li class="grid-item" data-jkit="[show:delay=0;speed=500;animation=fade]">
-      <img src="img/tmp/1_ys.jpg">
-        <a class="ajax-link" href="single.html">  
-          <div class="grid-hover">
-            <h1>Single</h1>
-            <p>Branding</p>
-          </div>
-        </a>  
-    </li>
 
-    <li class="grid-item" data-jkit="[show:delay=0;speed=500;animation=fade]">
-      <img src="img/tmp/2_ys.jpg">
-        <a class="ajax-link" href="single.html">  
-          <div class="grid-hover">
-            <h1>Single</h1>
-            <p>Branding</p>
-          </div>
-        </a>      
-    </li>    
-    
-    <li class="grid-item" data-jkit="[show:delay=0;speed=500;animation=fade]">
-      <img src="img/tmp/3_ys.jpg">
-        <a class="ajax-link" href="single.html">  
-          <div class="grid-hover">
-            <h1>Single</h1>
-            <p>Branding</p>
-          </div>
-        </a>      
-    </li>  
-    
-    <li class="grid-item" data-jkit="[show:delay=0;speed=500;animation=fade]">
-      <img src="img/tmp/4_ys.jpg">
-        <a class="ajax-link" href="single.html">  
-          <div class="grid-hover">
-            <h1>Single</h1>
-            <p>Branding</p>
-          </div>
-        </a>      
-    </li>    
 
-    <li class="grid-item" data-jkit="[show:delay=0;speed=500;animation=fade]">
-      <img src="img/tmp/5_ys.jpg">
-        <a class="ajax-link" href="single.html">  
-          <div class="grid-hover">
-            <h1>Single</h1>
-            <p>Branding</p>
-          </div>
-        </a>      
-    </li>    
 
-    <li class="grid-item" data-jkit="[show:delay=0;speed=500;animation=fade]">
-      <img src="img/tmp/6_ys.jpg">
-        <a class="ajax-link" href="single.html">  
-          <div class="grid-hover">
-            <h1>Single</h1>
-            <p>Branding</p>
-          </div>
-        </a>      
-    </li>  
 
-  </ul>
+        <div class="col-md-4 sidebar" style="margin-top:40px;">
+            <div class="toplist">
+                <h4><span class="label label-danger">全站广播 </span></h4>
+                <p style="padding: 1rem 1rem;font-size:15px;">喜大普奔。 这个工具有主要有3个功能： 使用真实用户身份，调试微信网页授权。 校验页面的 JSSDK 权限，以及模拟大部分 SDK 的输入和输出。 利用集成的 Chrome DevTools 和基本</p>
+            </div>
+
+            <div class="toplist">
+                <h4><span class="label label-danger">活动影响力排行</span></h4>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <ul class="list-unstyled" style="padding: 1rem 1rem;font-size:15px;">
+                            <li><a href="#">06级校友奖学金</a><span class="badge pull-right">345</span>
+                            </li>
+                            <li><a href="#">06级校友奖学金</a><span class="badge pull-right">345</span>
+                            </li>
+                            <li><a href="#">06级校友奖学金</a><span class="badge pull-right">345</span>
+                            </li>
+                            <li><a href="#">06级校友奖学金</a><span class="badge pull-right">345</span>
+                            </li>
+
+                            <li><a href="#">06级校友奖学金</a><span class="badge pull-right">345</span>
+                            </li>
+                            <li><a href="#">06级校友奖学金</a><span class="badge pull-right">345</span>
+                            </li>
+                            <li><a href="#">06级校友奖学金</a><span class="badge pull-right">345</span>
+                            </li>
+
+                            <li><a href="#">06级校友奖学金</a><span class="badge pull-right">345</span>
+                            </li>
+                            <li><a href="#">06级校友奖学金</a><span class="badge pull-right">345</span>
+                            </li>
+
+                            <li><a href="#">06级校友奖学金</a><span class="badge pull-right">345</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- /.col-lg-6 -->
+                </div>
+                <!-- /.row -->
+            </div>
+            <div class="toplist">
+                <h4><span class="label label-danger">团队影响力排行</span></h4>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <ul class="list-unstyled" style="padding: 1rem 1rem;font-size:15px;">
+                            <li><a href="#">06级校友奖学金</a><span class="badge pull-right">345</span>
+                            </li>
+                            <li><a href="#">06级校友奖学金</a><span class="badge pull-right">345</span>
+                            </li>
+                            <li><a href="#">06级校友奖学金</a><span class="badge pull-right">345</span>
+                            </li>
+                            <li><a href="#">06级校友奖学金</a><span class="badge pull-right">345</span>
+                            </li>
+
+                            <li><a href="#">06级校友奖学金</a><span class="badge pull-right">345</span>
+                            </li>
+                            <li><a href="#">06级校友奖学金</a><span class="badge pull-right">345</span>
+                            </li>
+                            <li><a href="#">06级校友奖学金</a><span class="badge pull-right">345</span>
+                            </li>
+
+                            <li><a href="#">06级校友奖学金</a><span class="badge pull-right">345</span>
+                            </li>
+                            <li><a href="#">06级校友奖学金</a><span class="badge pull-right">345</span>
+                            </li>
+
+                            <li><a href="#">06级校友奖学金</a><span class="badge pull-right">345</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="toplist">
+                <h4><span class="label label-danger">个人影响力排行</span></h4>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <ul class="list-unstyled" style="padding: 1rem 1rem;font-size:15px;">
+                            <li><a href="#">06级校友奖学金</a><span class="badge pull-right">345</span>
+                            </li>
+                            <li><a href="#">06级校友奖学金</a><span class="badge pull-right">345</span>
+                            </li>
+                            <li><a href="#">06级校友奖学金</a><span class="badge pull-right">345</span>
+                            </li>
+                            <li><a href="#">06级校友奖学金</a><span class="badge pull-right">345</span>
+                            </li>
+
+                            <li><a href="#">06级校友奖学金</a><span class="badge pull-right">345</span>
+                            </li>
+                            <li><a href="#">06级校友奖学金</a><span class="badge pull-right">345</span>
+                            </li>
+                            <li><a href="#">06级校友奖学金</a><span class="badge pull-right">345</span>
+                            </li>
+
+                            <li><a href="#">06级校友奖学金</a><span class="badge pull-right">345</span>
+                            </li>
+                            <li><a href="#">06级校友奖学金</a><span class="badge pull-right">345</span>
+                            </li>
+
+                            <li><a href="#">06级校友奖学金</a><span class="badge pull-right">345</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- /.col-lg-6 -->
+                </div>
+                <!-- /.row -->
+            </div>
+
+
+
+
+
+        </div>
 

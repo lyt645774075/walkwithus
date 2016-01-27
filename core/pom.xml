@@ -34,6 +34,12 @@
             <version>1.0-SNAPSHOT</version>
         </dependency>
 
+        <dependency>
+            <groupId>cn.walkwithus</groupId>
+            <artifactId>support</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+
 
 
 

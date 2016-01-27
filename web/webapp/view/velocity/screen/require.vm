@@ -1,28 +1,32 @@
-#set($layout="layout/thomsoon.vm")
-
-<div class="text-intro">
-
-    <h1>我要加需求</h1>
-    <p style="color: green;">$!sysMsg</p>
-
-    <form method="post" accept-charset="utf-8">
-        <input type="hidden" name="action" value="create">
-
-        <input type="hidden" name="${_csrf.parameterName}"
-               value="${_csrf.token}" />
-
-        <div class="contact-one" style="width:100%">
-            <p>
-                <textarea id="desc" name="desc" placeholder="描述您想要的功能，我来为您完成..."></textarea>
-
-                <input class="button-submit" name="send" type="submit" value="提交" style="background-color: orange;font-size: larger"/>
-            </p>
-        </div>
-    </form>
-</div>
+#set($layout="layout/modernbusiness.vm")
 
 
-<div class="text-intro">
+
+    <div style="background-color: white; padding: 20px;" class="container">
+        <h1>我要加需求</h1>
+        <p style="color: green;">$!sysMsg</p>
+        <form method="post" accept-charset="utf-8">
+            <input type="hidden" name="action" value="create">
+
+            <input type="hidden" name="${_csrf.parameterName}"
+                   value="${_csrf.token}" />
+
+            <div class="contact-one" style="width:100%">
+                <p>
+                    <textarea id="desc" name="desc" placeholder="描述您想要的功能，我来为您完成..."></textarea>
+
+                    <input class="button-submit" name="send" type="submit" value="提交" style="background-color: orange;font-size: larger"/>
+                </p>
+            </div>
+        </form>
+    </div>
+
+
+
+
+
+
+<div style="background-color: white; padding: 20px; margin-top:10px;">
 
     <h1>已有需求</h1>
     <table style="width:100%;text-align:center">

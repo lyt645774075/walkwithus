@@ -19,7 +19,7 @@
 
        <context:property-placeholder location="classpath*:property/mongodb.properties"/>
 
-       <mongo:repositories base-package="cn.walkwithus.dal"/>
+       <mongo:repositories base-package="cn.walkwithus.persistence.dal"/>
 
        <mongo:mongo id="mongo" replica-set="${mongo.hostport}">
               <!-- 一些连接属性的设置 -->

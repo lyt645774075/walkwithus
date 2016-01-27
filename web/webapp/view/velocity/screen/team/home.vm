@@ -1,3 +1,204 @@
-#set($layout="layout/thomsoon.vm")
+#set($layout="layout/modernbusiness.vm")
 
-<div class="text-intro">暂未开放</div>
+
+
+<div class="jumbotron" style="background-color:white; padding:20px; margin-bottom:10px; border-radius: 0px;">
+
+    <h3>
+        简阳中学06级火箭班联盟
+        <span class="glyphicon glyphicon-grain" style="color:green"></span>
+        <span class="glyphicon glyphicon-usd" style="color:green"></span>
+    </h3>
+
+
+    <span>创建于：2015-09-30</span>
+    <br>
+    <span>签名：一群人的故事，一群人的传奇</span>
+
+
+    <div class="pull-right" style="margin-right:80px;">
+        <span class="glyphicon glyphicon-user" style="color:green;margin-left:15px;"></span>46
+        <span class="glyphicon glyphicon-thumbs-up" style="color:green;margin-left:15px;"></span>46
+        <span class="glyphicon glyphicon-eye-open" style="color:green;margin-left:15px;"></span>4
+    </div>
+
+
+</div>
+
+<div class="col-md-8 main-content-white">
+
+    <div class="col-sm-6 col-md-4">
+        <div class="thumbnail">
+            <img src="./psb.jpeg" alt="...">
+
+            <div class="caption">
+                <h3>10周年同学会</h3>
+
+                <p>一群人的故事，等待你的加入</p>
+                <a href="/activity/home?id=1">查看详情</a>
+                <a href="#">加入活动</a></div>
+        </div>
+    </div>
+
+    <div class="col-sm-6 col-md-4">
+        <div class="thumbnail">
+            <img src="./IMG_20150905_122216.jpg" alt="...">
+
+            <div class="caption">
+                <h3>06级校友奖学金</h3>
+
+                <p>一群人的故事，等待你的加入</p>
+                <a href="#">查看详情</a>
+                <a href="#">加入活动</a>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="col-sm-6 col-md-4">
+        <div class="thumbnail">
+            <img src="./6ED1DCF1-8D6E-4D91-8A4F-C1DEB8881E34.png" alt="...">
+
+            <div class="caption">
+                <h3>赵巧结婚大喜</h3>
+
+                <p>一群人的故事，等待你的加入</p>
+                <a href="#">查看详情</a>
+                <a href="#">加入活动</a></div>
+        </div>
+    </div>
+
+    <div class="col-sm-6 col-md-4">
+        <div class="thumbnail">
+            <img src="./6ED1DCF1-8D6E-4D91-8A4F-C1DEB8881E34.png" alt="...">
+
+            <div class="caption">
+                <h3>Thumbnail label</h3>
+
+                <p>一群人的故事，等待你的加入</p>
+                <a href="#">查看详情</a>
+                <a href="#">加入活动</a></div>
+        </div>
+    </div>
+
+    <!-- Pager -->
+
+    <ul class="pager col-md-12">
+        <li class="previous">
+            <a href="#">← Older</a>
+        </li>
+        <li class="next">
+            <a href="#">Newer →</a>
+        </li>
+    </ul>
+
+</div>
+
+<!-- Blog Sidebar Widgets Column -->
+<div class="col-md-4 sidebar">
+
+    <div class="toplist">
+        <h4><span class="label label-danger">最新动态</span></h4>
+
+        <div style="background-color:white;padding-left:10px; ">
+            <span class="glyphicon glyphicon-volume-up" style="color:red"></span>
+            ：
+                        <span>
+                        <a href="#">苏愿</a>
+                        加入了此活动，大家的掌声在哪里？
+                        </span>
+        </div>
+        <div style="background-color:white;padding-left:10px; ">
+            <span class="glyphicon glyphicon-user" style="color:green"></span>
+            <a href="#">伟:</a>
+                        <span>
+                        同意楼上！
+                        </span>
+        </div>
+        <div style="background-color:white;padding-left:10px; ">
+            <span class="glyphicon glyphicon-volume-up" style="color:red"></span>
+            ：
+            <a href="#">李洋涛</a>
+                        <span>
+                         捐赠活动1000.00元，活动财务流水变更。
+                        </span>
+        </div>
+        <div style="background-color:white;padding-left:10px; ">
+            <span class="glyphicon glyphicon-user" style="color:green"></span>
+            <a href="#">伟:</a>
+                        <span>
+                        同意楼上！
+                        </span>
+        </div>
+
+    </div>
+
+    <div class="toplist">
+        <h4><span class="label label-danger">影响力指数</span></h4>
+
+        <div class="row">
+            <div class="col-lg-12">
+                <ul class="list-unstyled" style="padding: 1rem 1rem;font-size:15px;">
+                    <li><a href="#">成员数</a><span class="badge pull-right">29</span>
+                    </li>
+                    <li><a href="#">活跃度</a><span class="badge pull-right">700</span>
+                    </li>
+                    <li><a href="#">关注数</a><span class="badge pull-right">150</span>
+                    </li>
+                    <li><a href="#">获得点赞</a><span class="badge pull-right">345</span>
+                    </li>
+
+                    <li><a href="#">公益加成（官方）</a><span class="badge pull-right">50</span>
+                    </li>
+                    <li><a href="#">团队信用</a><span class="badge pull-right">1000</span>
+                    </li>
+                    <li><a href="#">成员结构</a><span class="badge pull-right">300</span>
+                    </li>
+
+
+                </ul>
+            </div>
+            <!-- /.col-lg-6 -->
+        </div>
+        <!-- /.row -->
+    </div>
+
+    <div class="toplist">
+        <h4><span class="label label-danger">人员情况</span></h4>
+
+        <div class="row">
+            <div class="col-lg-12">
+                <ul class="list-unstyled" style="padding: 1rem 1rem;font-size:15px;">
+
+                    <li><a href="#">苏愿</a>（创建者）<span class="badge pull-right">345</span>
+                    </li>
+                    <li><a href="#">鲁虹伟</a>（管理员）<span class="badge pull-right">345</span>
+                    </li>
+                    <li><a href="#">李洋涛</a>（管理员）<span class="badge pull-right">345</span>
+                    </li>
+                    <li><a href="#">罗正发</a><span class="badge pull-right">345</span>
+                    </li>
+
+                    <li><a href="#">罗正发</a><span class="badge pull-right">345</span>
+                    </li>
+                    <li><a href="#">罗正发</a><span class="badge pull-right">345</span>
+                    </li>
+                    <li><a href="#">罗正发</a><span class="badge pull-right">345</span>
+                    </li>
+
+                    <li><a href="#">罗正发</a><span class="badge pull-right">345</span>
+                    </li>
+                    <li><a href="#">罗正发</a><span class="badge pull-right">345</span>
+                    </li>
+
+                    <li><a href="#">罗正发</a><span class="badge pull-right">345</span>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.col-lg-6 -->
+        </div>
+        <!-- /.row -->
+    </div>
+       
+
+

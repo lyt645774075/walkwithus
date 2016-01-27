@@ -20,14 +20,15 @@
            <intercept-url pattern="/bootstrap/**" access="hasRole('ANONYMOUS')"/>
            <intercept-url pattern="/font-awesome/**" access="hasRole('ANONYMOUS')"/>
            <intercept-url pattern="/other/**" access="hasRole('ANONYMOUS')"/>
+           <intercept-url pattern="/upload/**" access="hasRole('ANONYMOUS')"/>
 
 
 
            <!--登陆页面,注册页面不控制-->
-           <intercept-url pattern="/cn/walkwithus/login" access="hasRole('ANONYMOUS')"/>
+           <intercept-url pattern="/login" access="hasRole('ANONYMOUS')"/>
            <intercept-url pattern="/register*" access="hasRole('ANONYMOUS')"/>
 
-            <form-login login-page="/cn/walkwithus/login" default-target-url="/"
+            <form-login login-page="/login" default-target-url="/"
                     login-processing-url="/login.do"
                     />
 

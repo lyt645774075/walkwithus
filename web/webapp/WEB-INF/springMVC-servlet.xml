@@ -32,36 +32,18 @@
 	<mvc:default-servlet-handler />
 
 
-	<context:component-scan base-package="cn.walkwithus.controller"/>
+	<context:component-scan base-package="cn.walkwithus.web.controller"/>
 
-	
-	<bean id="velocityConfig" class="org.springframework.web.servlet.view.velocity.VelocityConfigurer">
-		<property name="resourceLoaderPath" value="/view/velocity/" />
-		<property name="velocityProperties">
-			<props>
-				<prop key="input.encoding">utf-8</prop>
-				<prop key="output.encoding">utf-8</prop>
-				<prop key="contentType">text/html;charset=UTF-8</prop>
-			</props>
-		</property>
+
+	<!--<import resource="view-config/json-view-config.xml"/>-->
+
+	<import resource="view-config/velocity-view-config.xml"/>
+
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<property name="defaultEncoding" value="utf-8" />
+		<property name="maxUploadSize" value="10485760000" />
+		<property name="maxInMemorySize" value="40960" />
 	</bean>
-
-	<bean id="velocityViewResolver" class="org.springframework.web.servlet.view.velocity.VelocityLayoutViewResolver">
-		<property name="prefix" value=""/>
-		<property name="suffix" value=".vm"/>
-		<property name="contentType" value="text/html;charset=UTF-8"/>
-		<property name="layoutUrl" value="layout/nolayout.vm"/>
-		<property name="order" value="0"/>
-		<property name="attributesMap">
-			<map>
-				<entry key="sec">
-					<ref bean="securityTool"/>
-				</entry>
-			</map>
-		</property>
-	</bean>
-
-	<bean id="securityTool" class="support.VelocitySecurityUtil"/>
 
 
 
