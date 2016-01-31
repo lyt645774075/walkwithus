@@ -4,300 +4,294 @@
 
     <div class="page-header">
         <h1>活动财务流水</h1>
+
+        <div class="col-md-offset-10">
+            <button class="btn btn-success" data-toggle="modal" data-target="#addAccountInfoModal">新增流水</button>
+        </div>
+    </div>
+
+    #if($!sysmsg)
+        <p>$!sysmsg</p>
+    #stop
+    #end
+
+
+    <!-- 新增流水模态框 -->
+    <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+         id="addAccountInfoModal">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">新增活动财务流水</h4>
+                </div>
+
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <form class="form-horizontal" method="post">
+
+                            <input type="hidden" name="${_csrf.parameterName}"
+                                   value="${_csrf.token}">
+                            <input type="hidden" name="action" value="add">
+
+                            <div class="form-group">
+                                <div class="col-md-2">
+                                    <label class="control-label">本活动</label>
+                                </div>
+
+                                <div class="col-md-2">
+                                    <select name="direction" class="form-control">
+                                        <option value="1">收到</option>
+                                        <option value="2">支付</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-2">
+                                    <input type="text" placeholder="责任人" class="form-control" name="actionUserNickName">
+                                </div>
+                                <div class="col-md-2">
+                                    <input type="text" placeholder="金额" class="form-control" name="money">
+                                </div>
+                                <div class="col-md-1">
+                                    <label class="control-label">元</label>
+                                </div>
+
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-9">
+                                    <textarea class="form-control" name="memo" placeholder="备注"
+                                              rows="2"></textarea>
+                                </div>
+                            </div>
+
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                                <button type="submit" class="btn btn-primary">提交</button>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
     </div>
 
 
-    <table class="table table-hover table-condensed" style="width:100%;" >
-        <thead>
-        <tr>
-            <th>
-                序号
-            </th>
-            <th>
-                产生时间
-            </th>
-            <th>
-                金额（元）
-            </th>
-            <th>
-                类型
-            </th>
-            <th>
-                责任人
-            </th>
-            <th>
-                审核人
-            </th>
-            <th>
-                备注
-            </th>
+    <ul class="nav nav-tabs" role="tablist">
+        <li role="presentation" class="active"><a href="#pass" aria-controls="pass" role="tab"
+                                                  data-toggle="tab">财务流水</a></li>
+        <li role="presentation"><a href="#waitAudit" aria-controls="waitAudit" role="tab" data-toggle="tab">待审核流水</a>
+        </li>
+        <li role="presentation"><a href="#unpass" aria-controls="unpass" role="tab" data-toggle="tab">未通过流水</a></li>
+        <li role="presentation"><a href="#invalid" aria-controls="invalid" role="tab" data-toggle="tab">废弃流水</a></li>
+    </ul>
 
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-            <td>1</td>
-            <td>2015-09-10</td>
-            <td>1000.00</td>
-            <td>收到</td>
-            <td>李政霖</td>
-            <td>苏愿</td>
-            <td>微信</td>
-        </tr>
-        <tr>
-            <td>2</td>
-            <td>2015-09-10</td>
-            <td>1000.00</td>
-            <td>收到</td>
-            <td>黄平</td>
-            <td>苏愿</td>
-            <td>微信</td>
-        </tr>
-        <tr>
-            <td>3</td>
-            <td>2015-09-10</td>
-            <td>1000.00</td>
-            <td>收到</td>
-            <td>付学友</td>
-            <td>苏愿</td>
-            <td>微信</td>
-        </tr>
-        <tr>
-            <td>4</td>
-            <td>2015-09-10</td>
-            <td>1000.00</td>
-            <td>收到</td>
-            <td>吴波</td>
-            <td>苏愿</td>
-            <td>银行卡</td>
-        </tr>
-        <tr>
-            <td>5</td>
-            <td>2015-09-10</td>
-            <td>1000.00</td>
-            <td>收到</td>
-            <td>付颖玥</td>
-            <td>苏愿</td>
-            <td>支付宝</td>
-        </tr>
-        <tr>
-            <td>6</td>
-            <td>2015-09-10</td>
-            <td>1000.00</td>
-            <td>收到</td>
-            <td>毛玉霞</td>
-            <td>苏愿</td>
-            <td>支付宝</td>
-        </tr>
-        <tr>
-            <td>7</td>
-            <td>2015-09-10</td>
-            <td>1000.00</td>
-            <td>收到</td>
-            <td>辜良宇</td>
-            <td>苏愿</td>
-            <td>支付宝</td>
-        </tr>
-        <tr>
-            <td>8</td>
-            <td>2015-09-10</td>
-            <td>1000.00</td>
-            <td>收到</td>
-            <td>陈立</td>
-            <td>苏愿</td>
-            <td>支付宝</td>
-        </tr>
-        <tr>
-            <td>9</td>
-            <td>2015-09-10</td>
-            <td>1000.00</td>
-            <td>收到</td>
-            <td>陈飞</td>
-            <td>苏愿</td>
-            <td>支付宝</td>
-        </tr>
-        <tr>
-            <td>10</td>
-            <td>2015-09-10</td>
-            <td>1000.00</td>
-            <td>收到</td>
-            <td>罗泗勇</td>
-            <td>苏愿</td>
-            <td>支付宝</td>
-        </tr>
-        <tr>
-            <td>11</td>
-            <td>2015-09-10</td>
-            <td>1000.00</td>
-            <td>收到</td>
-            <td>杨建超</td>
-            <td>苏愿</td>
-            <td>支付宝</td>
-        </tr>
-        <tr>
-            <td>12</td>
-            <td>2015-09-10</td>
-            <td>1000.00</td>
-            <td>收到</td>
-            <td>李洋涛</td>
-            <td>苏愿</td>
-            <td>支付宝</td>
-        </tr>
-        <tr>
-            <td>13</td>
-            <td>2015-09-10</td>
-            <td>1000.00</td>
-            <td>收到</td>
-            <td>罗正发</td>
-            <td>苏愿</td>
-            <td>支付宝</td>
-        </tr>
-        <tr>
-            <td>14</td>
-            <td>2015-09-10</td>
-            <td>1000.00</td>
-            <td>收到</td>
-            <td>解澜</td>
-            <td>苏愿</td>
-            <td>支付宝</td>
-        </tr>
-        <tr>
-            <td>15</td>
-            <td>2015-09-10</td>
-            <td>1000.00</td>
-            <td>收到</td>
-            <td>王子静</td>
-            <td>苏愿</td>
-            <td>支付宝</td>
-        </tr>
-        <tr>
-            <td>16</td>
-            <td>2015-09-10</td>
-            <td>1000.00</td>
-            <td>收到</td>
-            <td>段聪</td>
-            <td>苏愿</td>
-            <td>支付宝</td>
-        </tr>
-        <tr>
-            <td>17</td>
-            <td>2015-09-10</td>
-            <td>1000.00</td>
-            <td>收到</td>
-            <td>卿科</td>
-            <td>苏愿</td>
-            <td>支付宝</td>
-        </tr>
-        <tr>
-            <td>18</td>
-            <td>2015-09-10</td>
-            <td>1000.00</td>
-            <td>收到</td>
-            <td>鲁虹伟</td>
-            <td>苏愿</td>
-            <td>支付宝</td>
-        </tr>
-        <tr>
-            <td>19</td>
-            <td>2015-09-10</td>
-            <td>1000.00</td>
-            <td>收到</td>
-            <td>牟洁</td>
-            <td>苏愿</td>
-            <td>支付宝</td>
-        </tr>
-        <tr>
-            <td>20</td>
-            <td>2015-09-10</td>
-            <td>1000.00</td>
-            <td>收到</td>
-            <td>苏愿</td>
-            <td>苏愿</td>
-            <td>支付宝</td>
-        </tr>
-        <tr>
-            <td>21</td>
-            <td>2015-09-10</td>
-            <td>1000.00</td>
-            <td>收到</td>
-            <td>李俊聪</td>
-            <td>苏愿</td>
-            <td>支付宝</td>
-        </tr>
-        <tr>
-            <td>22</td>
-            <td>2015-10-10</td>
-            <td>1000.00</td>
-            <td>收到</td>
-            <td>赵巧</td>
-            <td>苏愿</td>
-            <td>支付宝</td>
-        </tr>
-        <tr>
-            <td>23</td>
-            <td>2015-10-10</td>
-            <td>1000.00</td>
-            <td>收到</td>
-            <td>易俊芳</td>
-            <td>苏愿</td>
-            <td>支付宝</td>
-        </tr>
-        <tr>
-            <td>24</td>
-            <td>2015-10-10</td>
-            <td>1000.00</td>
-            <td>收到</td>
-            <td>毛小林</td>
-            <td>苏愿</td>
-            <td>微信</td>
-        </tr>
-        <tr>
-            <td>25</td>
-            <td>2015-10-10</td>
-            <td>1000.00</td>
-            <td>收到</td>
-            <td>冯波</td>
-            <td>苏愿</td>
-            <td>支付宝</td>
-        </tr>
-        <tr>
-            <td>26</td>
-            <td>2015-10-10</td>
-            <td>1000.00</td>
-            <td>收到</td>
-            <td>冯锦明</td>
-            <td>苏愿</td>
-            <td>支付宝</td>
-        </tr>
-        <tr>
-            <td>27</td>
-            <td>2015-10-11</td>
-            <td>1000.00</td>
-            <td>收到</td>
-            <td>付润</td>
-            <td>苏愿</td>
-            <td>支付宝</td>
-        </tr>
-        <tr>
-            <td>28</td>
-            <td>2015-10-13</td>
-            <td>1000.00</td>
-            <td>收到</td>
-            <td>曾德军</td>
-            <td>苏愿</td>
-            <td>支付宝</td>
-        </tr>
-        <tr>
-            <td>29</td>
-            <td>2015-10-17</td>
-            <td>1000.00</td>
-            <td>收到</td>
-            <td>丁勇</td>
-            <td>苏愿</td>
-            <td>支付宝</td>
-        </tr>
-        </tbody>
-    </table>
+    <!-- Tab panes -->
+    <div class="tab-content">
+        <div role="tabpanel" class="tab-pane active" id="pass">
+            <table class="table table-hover table-condensed" style="width:100%;">
+                <thead>
+                <tr>
+                    <th>
+                        序号
+                    </th>
+                    <th>
+                        产生时间
+                    </th>
+                    <th>
+                        金额（元）
+                    </th>
+                    <th>
+                        类型
+                    </th>
+                    <th>
+                        责任人
+                    </th>
+                    <th>
+                        提交人
+                    </th>
+                    <th>
+                        审核人
+                    </th>
+                    <th>
+                        备注
+                    </th>
+
+                </tr>
+                </thead>
+                <tbody>
+                    #foreach($accountInfo in $!accountInfoList)
+                        #if($!accountInfo.status.code == "10")
+                            <tr>
+                                <td>$!velocityCount</td>
+                                <td>$DateUtil.shortFormat($!accountInfo.gmtCreate)</td>
+                                <td>$!accountInfo.money</td>
+                                <td>$!accountInfo.direction.label</td>
+                                <td>$!accountInfo.actionUserNickName</td>
+                                <td>$!accountInfo.submitUserNickName</td>
+                                <td>$!accountInfo.auditNickName</td>
+                                <td>$!accountInfo.memo</td>
+                            </tr>
+                        #end
+                    #end
+
+                </tbody>
+            </table>
+        </div>
+        <div role="tabpanel" class="tab-pane" id="waitAudit">
+            <table class="table table-hover table-condensed" style="width:100%;">
+                <thead>
+                <tr>
+                    <th>
+                        序号
+                    </th>
+                    <th>
+                        产生时间
+                    </th>
+                    <th>
+                        金额（元）
+                    </th>
+                    <th>
+                        类型
+                    </th>
+                    <th>
+                        责任人
+                    </th>
+                    <th>
+                        提交人
+                    </th>
+                    <th>
+                        审核人
+                    </th>
+                    <th>
+                        备注
+                    </th>
+
+                </tr>
+                </thead>
+                <tbody>
+                    #foreach($accountInfo in $!accountInfoList)
+                        #if($!accountInfo.status.code == "1")
+                        <tr>
+                            <td>$!velocityCount</td>
+                            <td>$DateUtil.shortFormat($!accountInfo.gmtCreate)</td>
+                            <td>$!accountInfo.money</td>
+                            <td>$!accountInfo.direction.label</td>
+                            <td>$!accountInfo.actionUserNickName</td>
+                            <td>$!accountInfo.submitUserNickName</td>
+                            <td>$!accountInfo.auditNickName</td>
+                            <td>$!accountInfo.memo</td>
+                        </tr>
+                        #end
+                    #end
+
+                </tbody>
+            </table>
+        </div>
+        <div role="tabpanel" class="tab-pane" id="unpass">
+            <table class="table table-hover table-condensed" style="width:100%;">
+                <thead>
+                <tr>
+                    <th>
+                        序号
+                    </th>
+                    <th>
+                        产生时间
+                    </th>
+                    <th>
+                        金额（元）
+                    </th>
+                    <th>
+                        类型
+                    </th>
+                    <th>
+                        责任人
+                    </th>
+                    <th>
+                        提交人
+                    </th>
+                    <th>
+                        审核人
+                    </th>
+                    <th>
+                        备注
+                    </th>
+
+                </tr>
+                </thead>
+                <tbody>
+                    #foreach($accountInfo in $!accountInfoList)
+                        #if($!accountInfo.status.code == "20")
+                        <tr>
+                            <td>$!velocityCount</td>
+                            <td>$DateUtil.shortFormat($!accountInfo.gmtCreate)</td>
+                            <td>$!accountInfo.money</td>
+                            <td>$!accountInfo.direction.label</td>
+                            <td>$!accountInfo.actionUserNickName</td>
+                            <td>$!accountInfo.submitUserNickName</td>
+                            <td>$!accountInfo.auditNickName</td>
+                            <td>$!accountInfo.memo</td>
+                        </tr>
+                        #end
+                    #end
+
+                </tbody>
+            </table>
+        </div>
+        <div role="tabpanel" class="tab-pane" id="invalid">
+            <table class="table table-hover table-condensed" style="width:100%;">
+                <thead>
+                <tr>
+                    <th>
+                        序号
+                    </th>
+                    <th>
+                        产生时间
+                    </th>
+                    <th>
+                        金额（元）
+                    </th>
+                    <th>
+                        类型
+                    </th>
+                    <th>
+                        责任人
+                    </th>
+                    <th>
+                        提交人
+                    </th>
+                    <th>
+                        审核人
+                    </th>
+                    <th>
+                        备注
+                    </th>
+
+                </tr>
+                </thead>
+                <tbody>
+                    #foreach($accountInfo in $!accountInfoList)
+                        #if($!accountInfo.status.code == "99")
+                        <tr>
+                            <td>$!velocityCount</td>
+                            <td>$DateUtil.shortFormat($!accountInfo.gmtCreate)</td>
+                            <td>$!accountInfo.money</td>
+                            <td>$!accountInfo.direction.label</td>
+                            <td>$!accountInfo.actionUserNickName</td>
+                            <td>$!accountInfo.submitUserNickName</td>
+                            <td>$!accountInfo.auditNickName</td>
+                            <td>$!accountInfo.memo</td>
+                        </tr>
+                        #end
+                    #end
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
 </div>
 
 

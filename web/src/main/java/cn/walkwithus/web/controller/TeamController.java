@@ -7,7 +7,11 @@ package cn.walkwithus.web.controller;
 
 import cn.walkwithus.core.domain.TeamBO;
 import cn.walkwithus.core.manager.TeamManager;
+import cn.walkwithus.security.login.LoginUserHolder;
 import cn.walkwithus.support.constants.RedirectConstants;
+import cn.walkwithus.support.constants.VmConstants;
+import cn.walkwithus.web.transfer.TeamTransfer;
+import cn.walkwithus.web.vo.TeamVO;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -32,6 +36,9 @@ public class TeamController {
 
     @Autowired
     private TeamManager teamManager;
+
+    @Autowired
+    private LoginUserHolder loginUserHolder;
 
     @RequestMapping("/home")
      public String doGetHome(@RequestParam(value = "id",required = false)String id, ModelMap modelMap){
@@ -60,5 +67,56 @@ public class TeamController {
 
         return EDIT_VIEW;
     }
+
+
+    @RequestMapping(value = "/create", method = RequestMethod.POST)
+    public String doPostCreate(TeamVO teamVO, ModelMap modelMap){
+
+        if(loginUserHolder.isNotLogin()){
+            modelMap.addAttribute(VmConstants.SYS_MSG, "你需要先登录才能创建团队");
+            return EDIT_VIEW;
+        }
+
+        TeamBO teamBO = TeamTransfer.toBO(teamVO);
+
+        teamBO = teamManager.createTeam(teamBO);
+
+        return RedirectConstants.R_TEAM_HOME_PRE + teamBO.getId();
+    }
+
+    @RequestMapping(value = "/update", method = RequestMethod.GET)
+    public String doGetUpdate(@RequestParam(value = "id", required = false) String id, ModelMap modelMap){
+
+        if(StringUtils.isEmpty(id)){
+            return RedirectConstants.R_WEB_HOME;
+        }
+
+        TeamBO teamBO = teamManager.getTeamById(id.trim());
+        if(teamBO == null){
+            return RedirectConstants.R_WEB_HOME;
+        }
+
+
+        modelMap.addAttribute("team", teamBO);
+
+        return EDIT_VIEW;
+    }
+
+
+    @RequestMapping(value = "/update", method = RequestMethod.POST)
+    public String doPostUpdate(TeamVO teamVO, ModelMap modelMap){
+
+        TeamBO teamBO = TeamTransfer.toBO(teamVO);
+
+        teamBO = teamManager.updateTeam(teamBO);
+
+        return RedirectConstants.R_TEAM_HOME_PRE + teamBO.getId();
+    }
+
+
+
+
+
+
 
 }

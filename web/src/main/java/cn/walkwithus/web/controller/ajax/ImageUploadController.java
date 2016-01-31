@@ -39,7 +39,7 @@ public class ImageUploadController {
 
         Map<String, String> dataMap = Maps.newHashMap();
 
-        dataMap.put("url", "/upload/6ED1DCF1-8D6E-4D91-8A4F-C1DEB8881E34.png");
+        dataMap.put("url", "http://res.cloudinary.com/demo/image/upload/butterfly.jpg");
 
         return dataMap;
 

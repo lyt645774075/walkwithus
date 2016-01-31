@@ -18,7 +18,7 @@
                     <p>
                         <small><span class="glyphicon glyphicon-share-alt"></span></small>
                         <a href="/team/home?id=1"
-                           class="small">简阳中学06级火箭班联盟</a>
+                           class="small">$!activity.ownerName</a>
                     </p>
 
                     <p>
@@ -31,16 +31,14 @@
                         <small>$!activity.address</small>
                     </p>
 
-
-                    <p class="col-md-offset-8">
-                        <a href="/acl/activity/accountinfo"
+                    <div>
+                        <a href="/acl/activity/accountinfo?id=$!activity.id"
                            class="small " style="margin-right:10px;">财务情况</a>
-                        <a href="/acl/"
+                        <a href="/acl/activity/member"
                            class="small " style="margin-right:10px;">人员管理</a>
                         <a href="/activity/update?id=$!activity.id"
                            class="small " style="margin-right:10px;">活动修改</a>
-
-                    </p>
+                    </div>
 
 
                 </h3>

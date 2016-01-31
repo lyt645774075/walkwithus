@@ -74,4 +74,6 @@
         <beans:constructor-arg name="key" value="liyangtao"/>
     </beans:bean>
 
+    <beans:bean id="loginUserHolder" class="cn.walkwithus.security.login.LoginUserHolder"/>
+
 </beans:beans>

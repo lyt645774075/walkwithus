@@ -14,7 +14,7 @@ import org.springframework.data.mongodb.repository.MongoRepository;
  */
 public interface UserDAO extends MongoRepository<UserDO, Long>{
 
-    public UserDO findUserByUserName(String userName);
+    public UserDO findUserByEmail(String email);
 
 
 

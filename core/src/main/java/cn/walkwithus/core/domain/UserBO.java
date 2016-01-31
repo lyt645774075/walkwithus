@@ -5,14 +5,21 @@
 
 package cn.walkwithus.core.domain;
 
+import java.util.Date;
+
 /**
  * @author yangtao.lyt
  * @version $Id: UserBO, v 0.1 2016-01-17 13:45 yangtao.lyt Exp $
  */
 public class UserBO {
+
     private String id;
 
-    private String userName;
+    private Date gmtCreate;
+
+    private Date gmtModified;
+
+    private String email;
 
     private String passWord;
 
@@ -27,12 +34,28 @@ public class UserBO {
         this.id = id;
     }
 
-    public String getUserName() {
-        return userName;
+    public Date getGmtCreate() {
+        return gmtCreate;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setGmtCreate(Date gmtCreate) {
+        this.gmtCreate = gmtCreate;
+    }
+
+    public Date getGmtModified() {
+        return gmtModified;
+    }
+
+    public void setGmtModified(Date gmtModified) {
+        this.gmtModified = gmtModified;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getPassWord() {

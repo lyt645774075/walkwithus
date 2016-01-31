@@ -20,11 +20,30 @@ public class UserTransfer {
 
         UserBO userBO = new UserBO();
         userBO.setId(userDO.getId());
-        userBO.setUserName(userDO.getUserName());
+        userBO.setEmail(userDO.getEmail());
         userBO.setPassWord(userDO.getPassWord());
         userBO.setNickName(userDO.getNickName());
+        userBO.setGmtCreate(userDO.getGmtCreate());
+        userBO.setGmtModified(userDO.getGmtModified());
 
         return userBO;
+
+    }
+
+    public static UserDO toDO(UserBO userBO){
+        if(userBO == null){
+            return null;
+        }
+
+        UserDO userDO = new UserDO();
+        userDO.setId(userBO.getId());
+        userDO.setEmail(userBO.getEmail());
+        userDO.setPassWord(userBO.getPassWord());
+        userDO.setNickName(userBO.getNickName());
+        userDO.setGmtCreate(userBO.getGmtCreate());
+        userDO.setGmtModified(userBO.getGmtModified());
+
+        return userDO;
 
     }
 

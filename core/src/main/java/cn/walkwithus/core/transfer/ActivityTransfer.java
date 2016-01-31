@@ -7,7 +7,6 @@ package cn.walkwithus.core.transfer;
 
 import cn.walkwithus.core.domain.ActivityBO;
 import cn.walkwithus.persistence.dal.dataobject.ActivityDO;
-
 import com.google.common.base.Preconditions;
 
 /**

@@ -1,0 +1,69 @@
+#set($layout="layout/modernbusiness.vm")
+
+<link href="http://cdn.gbtags.com/summernote/0.5.2/summernote.css" rel="stylesheet">
+<link href="http://cdn.gbtags.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
+<link href="/css/bootstrap-datetimepicker.min.css" rel="stylesheet" media="screen">
+
+<div style="background-color:white;padding:30px;">
+
+    <div style="width: 600px; margin-left: auto; margin-right: auto; margin-top: 60px; margin-bottom: 100px;">
+        <div class="page-header" style="border-bottom: 1px solid #5cb85c">
+            <h1 style="text-align: center">用户注册</h1>
+        </div>
+
+        <form class="form-horizontal" method="POST">
+            <input type="hidden" name="${_csrf.parameterName}"
+                   value="${_csrf.token}">
+
+            <input type="hidden" id="desc" name="desc" value="">
+
+            <div class="form-group form-group-lg">
+                <label class="col-sm-2 control-label" for="name">电子邮箱</label>
+
+                <div class="col-sm-10">
+                    <input class="form-control" type="email" id="email" name="email" placeholder="这将是您用于登陆的账号..."
+                           value="$!user.email">
+                </div>
+            </div>
+
+            <div class="form-group form-group-lg">
+                <label class="col-sm-2 control-label" for="">用户昵称</label>
+
+                <div class="col-sm-10">
+                    <input class="form-control form_datetime" type="text" id="nickName" name="nickName"
+                           placeholder="这将是您用于显示的昵称..."  value="$!user.nickname">
+                </div>
+
+            </div>
+
+            <div class="form-group form-group-lg">
+                <label class="col-sm-2 control-label" for="">密码</label>
+
+                <div class="col-sm-10">
+                    <input class="form-control" type="password" id="passWord" name="passWord" placeholder="登陆密码..."
+                           value="$!user.password">
+                </div>
+            </div>
+
+
+
+
+            <button type="submit" class="btn btn-success col-sm-offset-10" >
+                创建
+            </button>
+
+        </form>
+
+    </div>
+
+
+</div>
+
+
+<script src="http://cdn.gbtags.com/summernote/0.5.2/summernote.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.js"></script>
+
+<script type="text/javascript" src="/js/bootstrap-datetimepicker.min.js" charset="UTF-8"></script>
+<script type="text/javascript" src="/js/bootstrap-datetimepicker.zh-CN.js" charset="UTF-8"></script>
+

@@ -16,4 +16,9 @@ public interface TeamManager {
 
     public TeamBO getTeamById(String id);
 
+
+    public TeamBO createTeam(TeamBO teamBO);
+
+    public TeamBO updateTeam(TeamBO teamBO);
+
 }

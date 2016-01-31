@@ -15,7 +15,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class UserDO extends BaseMongoObject{
 
 
-    private String userName;
+    private String email;
 
     private String passWord;
 
@@ -24,13 +24,12 @@ public class UserDO extends BaseMongoObject{
     private String sex;
 
 
-
-    public String getUserName() {
-        return userName;
+    public String getEmail() {
+        return email;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getPassWord() {

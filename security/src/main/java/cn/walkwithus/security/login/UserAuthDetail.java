@@ -20,11 +20,11 @@ public class UserAuthDetail implements UserDetails{
 
     private String id;
 
-    private String username;
+    private String email;
 
     private String password;
 
-    private String nickname;
+    private String nickName;
 
 
     public String getId() {
@@ -35,20 +35,25 @@ public class UserAuthDetail implements UserDetails{
         this.id = id;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setNickName(String nickName) {
+        this.nickName = nickName;
     }
 
     public void setPassword(String password) {
         this.password = password;
     }
 
-    public String getNickname() {
-        return nickname;
+
+    public String getEmail() {
+        return email;
     }
 
-    public void setNickname(String nickname) {
-        this.nickname = nickname;
+    public String getNickName() {
+        return nickName;
     }
 
     @Override
@@ -64,7 +69,7 @@ public class UserAuthDetail implements UserDetails{
 
     @Override
     public String getUsername() {
-        return username;
+        return email;
     }
 
     @Override

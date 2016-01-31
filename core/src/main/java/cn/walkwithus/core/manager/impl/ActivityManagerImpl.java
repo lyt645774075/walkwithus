@@ -5,11 +5,18 @@
 
 package cn.walkwithus.core.manager.impl;
 
-import cn.walkwithus.core.transfer.ActivityTransfer;
-import cn.walkwithus.persistence.dal.dataobject.ActivityDO;
-import cn.walkwithus.persistence.dal.ActivityDAO;
 import cn.walkwithus.core.domain.ActivityBO;
 import cn.walkwithus.core.manager.ActivityManager;
+import cn.walkwithus.core.transfer.ActivityTransfer;
+import cn.walkwithus.persistence.dal.ActivityDAO;
+import cn.walkwithus.persistence.dal.RelaTeamActivityDAO;
+import cn.walkwithus.persistence.dal.RelaUserActivityDAO;
+import cn.walkwithus.persistence.dal.dataobject.ActivityDO;
+import cn.walkwithus.persistence.dal.dataobject.RelaTeamActivityDO;
+import cn.walkwithus.persistence.dal.dataobject.RelaUserActivityDO;
+import cn.walkwithus.security.login.LoginUserHolder;
+import cn.walkwithus.security.role.UserRole;
+import cn.walkwithus.support.constants.DomainObj;
 import com.google.common.base.Preconditions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -28,6 +35,15 @@ public class ActivityManagerImpl implements ActivityManager{
     @Autowired
     private ActivityDAO activityDAO;
 
+    @Autowired
+    private RelaUserActivityDAO relaUserActivityDAO;
+
+    @Autowired
+    private RelaTeamActivityDAO relaTeamActivityDAO;
+
+    @Autowired
+    private LoginUserHolder loginUserHolder;
+
     @Override
     public String testStr() {
         return "调用manager成功";
@@ -37,12 +53,39 @@ public class ActivityManagerImpl implements ActivityManager{
     @Override
     public ActivityBO createActivity(ActivityBO activityBO) {
 
-        activityBO.setGmtCreate(new Date());
-        activityBO.setGmtModified(new Date());
+        Date now = new Date();
+
+        activityBO.setGmtCreate(now);
+        activityBO.setGmtModified(now);
 
         ActivityDO activityDO = ActivityTransfer.toDO(activityBO);
-
         activityDO = activityDAO.save(activityDO);
+
+        //插入"团队-活动"关系
+        if(activityBO.getDomainObj() == DomainObj.TEAM){
+            RelaTeamActivityDO relaTeamActivityDO = new RelaTeamActivityDO();
+            relaTeamActivityDO.setGmtCreate(now);
+            relaTeamActivityDO.setGmtModified(now);
+            relaTeamActivityDO.setActivityId(activityDO.getId());
+            relaTeamActivityDO.setActivityName(activityDO.getName());
+            relaTeamActivityDO.setTeamId(activityBO.getDomainId());
+            relaTeamActivityDO.setTeamName(activityBO.getOwnerName());
+            relaTeamActivityDO.setEnable(true);
+
+            relaTeamActivityDAO.save(relaTeamActivityDO);
+        }
+
+        RelaUserActivityDO relaUserActivityDO = new RelaUserActivityDO();
+        relaUserActivityDO.setUserId(loginUserHolder.getId());
+        relaUserActivityDO.setUserNickName(loginUserHolder.getNickName());
+        relaUserActivityDO.setActivityId(activityDO.getId());
+        relaUserActivityDO.setActivityName(activityDO.getName());
+        relaUserActivityDO.setGmtCreate(now);
+        relaUserActivityDO.setGmtCreate(now);
+        relaUserActivityDO.setUserRole(UserRole.ADMIN.getCode());
+        relaUserActivityDO.setValid(true);
+
+        relaUserActivityDAO.save(relaUserActivityDO);
 
         return ActivityTransfer.toBO(activityDO);
     }
@@ -65,8 +108,19 @@ public class ActivityManagerImpl implements ActivityManager{
         Preconditions.checkArgument(!StringUtils.isEmpty(id), "id不能为空");
 
         ActivityDO activityDO = activityDAO.findOne(id);
+        if(activityDO == null){
+            return null;
+        }
+        ActivityBO activityBO = ActivityTransfer.toBO(activityDO);
 
-        return activityDO == null ? null : ActivityTransfer.toBO(activityDO);
+        RelaTeamActivityDO relaTeamActivityDO = relaTeamActivityDAO.findTeamByActivityId(id);
+        if(relaTeamActivityDO != null){
+            activityBO.setDomainId(relaTeamActivityDO.getTeamId());
+            activityBO.setDomainObj(DomainObj.TEAM);
+            activityBO.setOwnerName(relaTeamActivityDO.getTeamName());
+        }
+
+        return activityBO;
 
     }
 }

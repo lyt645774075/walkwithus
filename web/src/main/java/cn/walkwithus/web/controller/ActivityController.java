@@ -5,6 +5,14 @@
 
 package cn.walkwithus.web.controller;
 
+import cn.walkwithus.core.domain.ActivityBO;
+import cn.walkwithus.core.domain.TeamBO;
+import cn.walkwithus.core.manager.ActivityManager;
+import cn.walkwithus.core.manager.TeamManager;
+import cn.walkwithus.support.constants.DomainObj;
+import cn.walkwithus.support.constants.RedirectConstants;
+import cn.walkwithus.web.transfer.ActivityTransfer;
+import cn.walkwithus.web.vo.ActivityVO;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -12,12 +20,6 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-
-import cn.walkwithus.core.domain.ActivityBO;
-import cn.walkwithus.core.manager.ActivityManager;
-import cn.walkwithus.support.constants.RedirectConstants;
-import cn.walkwithus.web.transfer.ActivityTransfer;
-import cn.walkwithus.web.vo.ActivityVO;
 
 /**
  * @author yangtao.lyt
@@ -35,6 +37,9 @@ public class ActivityController {
 
     @Autowired
     private ActivityManager activityManager;
+
+    @Autowired
+    private TeamManager teamManager;
 
 
 
@@ -61,7 +66,9 @@ public class ActivityController {
 
 
     @RequestMapping(value = "/create", method = RequestMethod.GET)
-    public String doGetCreate(){
+    public String doGetCreate(@RequestParam(value = "teamId", required = false) String teamId, ModelMap modelMap){
+
+        modelMap.put("teamId", teamId);
 
         return EDIT_VIEW;
     }
@@ -93,7 +100,11 @@ public class ActivityController {
     @RequestMapping(value = "/create", method = RequestMethod.POST)
     public String doPostCreateActivity(ActivityVO activityVO){
 
+        TeamBO teamBO = teamManager.getTeamById(activityVO.getDomainId());
+
         ActivityBO newObj = ActivityTransfer.toBO(activityVO);
+        newObj.setOwnerName(teamBO.getName());
+        newObj.setDomainObj(DomainObj.TEAM);
 
         ActivityBO reObj = activityManager.createActivity(newObj);
 

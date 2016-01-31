@@ -5,6 +5,8 @@
 
 package cn.walkwithus.core.domain;
 
+import cn.walkwithus.support.constants.DomainObj;
+
 import java.util.Date;
 
 /**
@@ -20,6 +22,13 @@ public class ActivityBO {
     private Date gmtModified;
 
     private String name;
+
+    /** 归属的领域对象类型 归属团队,归属个人*/
+    private DomainObj domainObj;
+    /** 归属的领域对象id */
+    private String domainId;
+    /** owner的名字   团队名称,个人昵称 */
+    private String ownerName;
 
     private Date beginDate;
 
@@ -92,5 +101,29 @@ public class ActivityBO {
 
     public void setDesc(String desc) {
         this.desc = desc;
+    }
+
+    public DomainObj getDomainObj() {
+        return domainObj;
+    }
+
+    public void setDomainObj(DomainObj domainObj) {
+        this.domainObj = domainObj;
+    }
+
+    public String getDomainId() {
+        return domainId;
+    }
+
+    public void setDomainId(String domainId) {
+        this.domainId = domainId;
+    }
+
+    public String getOwnerName() {
+        return ownerName;
+    }
+
+    public void setOwnerName(String ownerName) {
+        this.ownerName = ownerName;
     }
 }

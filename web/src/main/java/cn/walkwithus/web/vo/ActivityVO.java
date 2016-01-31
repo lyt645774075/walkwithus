@@ -5,6 +5,8 @@
 
 package cn.walkwithus.web.vo;
 
+import cn.walkwithus.support.constants.DomainObj;
+
 /**
  * @author yangtao.lyt
  * @version $Id: ActivityVO, v 0.1 2016-01-26 19:08 yangtao.lyt Exp $
@@ -14,6 +16,13 @@ public class ActivityVO {
     private String id;
 
     private String name;
+
+    /** 归属的领域对象类型 归属团队,归属个人*/
+    private DomainObj domainObj;
+    /** 归属的领域对象id */
+    private String domainId;
+    /** owner的名字   团队名称,个人昵称 */
+    private String ownerName;
 
     private String beginDate;
 
@@ -70,5 +79,29 @@ public class ActivityVO {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public DomainObj getDomainObj() {
+        return domainObj;
+    }
+
+    public void setDomainObj(DomainObj domainObj) {
+        this.domainObj = domainObj;
+    }
+
+    public String getDomainId() {
+        return domainId;
+    }
+
+    public void setDomainId(String domainId) {
+        this.domainId = domainId;
+    }
+
+    public String getOwnerName() {
+        return ownerName;
+    }
+
+    public void setOwnerName(String ownerName) {
+        this.ownerName = ownerName;
     }
 }

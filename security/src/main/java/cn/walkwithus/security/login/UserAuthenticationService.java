@@ -29,13 +29,13 @@ public class UserAuthenticationService implements UserDetailsService {
     @Override
     public UserAuthDetail loadUserByUsername(String userName) throws UsernameNotFoundException {
 
-        UserDO userDO = userDAO.findUserByUserName(userName);
+        UserDO userDO = userDAO.findUserByEmail(userName);
 
         UserAuthDetail userAuthDetail = new UserAuthDetail();
         userAuthDetail.setId(userDO.getId());
-        userAuthDetail.setUsername(userDO.getUserName());
+        userAuthDetail.setEmail(userDO.getEmail());
         userAuthDetail.setPassword(userDO.getPassWord());
-        userAuthDetail.setNickname(userDO.getNickName());
+        userAuthDetail.setNickName(userDO.getNickName());
 
         return userAuthDetail;
     }

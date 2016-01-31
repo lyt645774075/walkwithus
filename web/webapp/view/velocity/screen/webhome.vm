@@ -120,7 +120,7 @@
         <div class="col-md-4 sidebar" style="margin-top:40px;">
             <div class="toplist">
                 <h4><span class="label label-danger">全站广播 </span></h4>
-                <p style="padding: 1rem 1rem;font-size:15px;">喜大普奔。 这个工具有主要有3个功能： 使用真实用户身份，调试微信网页授权。 校验页面的 JSSDK 权限，以及模拟大部分 SDK 的输入和输出。 利用集成的 Chrome DevTools 和基本</p>
+                <p style="padding: 1rem 1rem;font-size:15px;">团队创建功能开放,<a href="/team/create">欢迎试用</a></p>
             </div>
 
             <div class="toplist">

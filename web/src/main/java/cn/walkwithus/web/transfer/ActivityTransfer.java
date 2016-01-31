@@ -5,13 +5,11 @@
 
 package cn.walkwithus.web.transfer;
 
-import org.apache.commons.lang.StringUtils;
-
 import cn.walkwithus.core.domain.ActivityBO;
 import cn.walkwithus.support.utils.DateUtil;
 import cn.walkwithus.web.vo.ActivityVO;
-
 import com.google.common.base.Preconditions;
+import org.apache.commons.lang.StringUtils;
 
 /**
  * @author yangtao.lyt
@@ -34,6 +32,9 @@ public class ActivityTransfer {
             activityBO.setEndDate(DateUtil.parseStr(vo.getEndDate(), DATE_FORMAT));
         }
 
+        activityBO.setDomainObj(vo.getDomainObj());
+        activityBO.setDomainId(vo.getDomainId());
+        activityBO.setOwnerName(vo.getOwnerName());
         activityBO.setDesc(vo.getDesc());
         activityBO.setAddress(vo.getAddress());
 
@@ -57,6 +58,10 @@ public class ActivityTransfer {
 
         activityVO.setDesc(bo.getDesc());
         activityVO.setAddress(bo.getAddress());
+
+        activityVO.setDomainObj(bo.getDomainObj());
+        activityVO.setDomainId(bo.getDomainId());
+        activityVO.setOwnerName(bo.getOwnerName());
 
         return activityVO;
     }

@@ -15,5 +15,9 @@ import cn.walkwithus.core.domain.UserBO;
 public interface UserManager {
 
 
-    public UserBO getUserByUserName(String userName);
+    public UserBO getUserByEmail(String email);
+
+
+
+    public UserBO createUser(UserBO userBO);
 }

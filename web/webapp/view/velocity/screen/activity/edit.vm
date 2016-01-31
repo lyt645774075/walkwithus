@@ -17,7 +17,7 @@
 
         <input type="hidden" id="desc" name="desc" value="">
 
-        <div class="form-group form-group-lg">
+        <div class="form-group">
             <label class="col-sm-2 control-label" for="name">活动名称</label>
 
             <div class="col-sm-8">
@@ -25,9 +25,20 @@
                        value="$!activity.name">
             </div>
         </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label" for="name">隶属于</label>
 
-        <div class="form-group form-group-sm">
-            <label class="col-sm-2 control-label" for="">活动时间</label>
+            <div class="col-sm-8">
+                <select name="domainId" class="form-control">
+                    #foreach($team in $loginUser.allTeam)
+                        <option value="$!team.teamId" #if($!teamId == $!team.teamId) selected #end>$!team.teamName</option>
+                    #end
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-2 control-label" for="">时间</label>
 
             <div class="col-sm-3">
                 <input class="form-control form_datetime" type="text" id="beginDate" name="beginDate"
@@ -41,8 +52,8 @@
             </div>
         </div>
 
-        <div class="form-group form-group-sm">
-            <label class="col-sm-2 control-label" for="">活动地点</label>
+        <div class="form-group">
+            <label class="col-sm-2 control-label" for="">地点</label>
 
             <div class="col-sm-8">
                 <input class="form-control" type="text" id="address" name="address" placeholder="活动地点"
@@ -50,8 +61,8 @@
             </div>
         </div>
 
-        <div class="form-group form-group-sm">
-            <label class="col-sm-2 control-label" for="">活动详情</label>
+        <div class="form-group">
+            <label class="col-sm-2 control-label" for="">详情</label>
 
             <div class="col-sm-8">
                 <div id="summernote">
@@ -62,11 +73,7 @@
 
 
         <button type="submit" class="btn btn-success col-sm-offset-8" onclick="doEdit()">
-            #if($!action == "create")
                 创建
-            #else
-                保存
-            #end
         </button>
 
     </form>

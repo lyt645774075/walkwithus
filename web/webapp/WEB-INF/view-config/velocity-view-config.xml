@@ -28,12 +28,16 @@
               <property name="order" value="0"/>
               <property name="attributesMap">
                      <map>
-                            <entry key="sec">
-                                   <ref bean="securityTool"/>
+                            <entry key="loginUser">
+                                   <ref bean="loginUserHolder"/>
+                            </entry>
+
+                            <entry key="DateUtil">
+                                   <ref bean="dateUtil"/>
                             </entry>
                      </map>
               </property>
        </bean>
 
-       <bean id="securityTool" class="cn.walkwithus.web.support.VelocitySecurityUtil"/>
+
 </beans>

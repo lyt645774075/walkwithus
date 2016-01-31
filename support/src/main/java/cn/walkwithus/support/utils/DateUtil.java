@@ -16,7 +16,11 @@ import java.util.Date;
  * @author yangtao.lyt
  * @version $Id: DateUtil, v 0.1 2016-01-26 19:15 yangtao.lyt Exp $
  */
-public abstract class DateUtil {
+public class DateUtil {
+
+    private static final String SHORT_DATE = "yyyy-MM-dd";
+
+    private static final String LONG_DATE = "yyyy-MM-dd HH:mm:ss";
 
     public static Date parseStr(String dateStr, String format){
 
@@ -42,6 +46,28 @@ public abstract class DateUtil {
         return sdf.format(date);
 
     }
+
+    public static String shortFormat(Date date){
+
+        Preconditions.checkArgument(!StringUtils.isEmpty(date), "date不能为空");
+
+        SimpleDateFormat sdf = new SimpleDateFormat(SHORT_DATE);
+
+        return sdf.format(date);
+
+    }
+
+    public static String longFormat(Date date){
+
+        Preconditions.checkArgument(!StringUtils.isEmpty(date), "date不能为空");
+
+        SimpleDateFormat sdf = new SimpleDateFormat(LONG_DATE);
+
+        return sdf.format(date);
+
+    }
+
+
 
 
 }

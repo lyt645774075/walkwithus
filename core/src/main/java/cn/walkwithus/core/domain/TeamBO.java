@@ -5,7 +5,10 @@
 
 package cn.walkwithus.core.domain;
 
+import com.google.common.collect.Lists;
+
 import java.util.Date;
+import java.util.List;
 
 /**
  * @author yangtao.lyt
@@ -21,6 +24,13 @@ public class TeamBO {
 
     private String name;
 
+    private List<RelaTeamActivityBO> relaTeamActivityBOList = Lists.newArrayList();
+
+    private List<RelaUserTeamBO> relaUserTeamBOList = Lists.newArrayList();
+
+    private String creatorId;
+
+    private String creatorNickName;
 
     public String getId() {
         return id;
@@ -52,5 +62,37 @@ public class TeamBO {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getCreatorId() {
+        return creatorId;
+    }
+
+    public void setCreatorId(String creatorId) {
+        this.creatorId = creatorId;
+    }
+
+    public String getCreatorNickName() {
+        return creatorNickName;
+    }
+
+    public void setCreatorNickName(String creatorNickName) {
+        this.creatorNickName = creatorNickName;
+    }
+
+    public List<RelaTeamActivityBO> getRelaTeamActivityBOList() {
+        return relaTeamActivityBOList;
+    }
+
+    public void setRelaTeamActivityBOList(List<RelaTeamActivityBO> relaTeamActivityBOList) {
+        this.relaTeamActivityBOList = relaTeamActivityBOList;
+    }
+
+    public List<RelaUserTeamBO> getRelaUserTeamBOList() {
+        return relaUserTeamBOList;
+    }
+
+    public void setRelaUserTeamBOList(List<RelaUserTeamBO> relaUserTeamBOList) {
+        this.relaUserTeamBOList = relaUserTeamBOList;
     }
 }

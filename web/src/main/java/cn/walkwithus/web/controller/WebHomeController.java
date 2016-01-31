@@ -6,10 +6,13 @@
 package cn.walkwithus.web.controller;
 
 import cn.walkwithus.core.domain.RequireBO;
-import cn.walkwithus.security.login.UserAuthDetail;
-import cn.walkwithus.core.manager.ActivityManager;
+import cn.walkwithus.core.domain.UserBO;
 import cn.walkwithus.core.manager.RequireManager;
-import cn.walkwithus.web.support.LoginDetailUtil;
+import cn.walkwithus.core.manager.UserManager;
+import cn.walkwithus.security.login.LoginUserHolder;
+import cn.walkwithus.support.constants.RedirectConstants;
+import cn.walkwithus.web.transfer.UserTransfer;
+import cn.walkwithus.web.vo.UserVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -41,12 +44,17 @@ public class WebHomeController {
 
     private static final String REQUIRE_VIEW = "screen/require";
 
+    private static final String REGISTER_VIEW = "screen/register";
+
 
     @Autowired
-    private ActivityManager activityManager;
+    private UserManager userManager;
 
     @Autowired
     private RequireManager requireManager;
+
+    @Autowired
+    private LoginUserHolder loginUserHolder;
 
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
@@ -94,10 +102,7 @@ public class WebHomeController {
             return REQUIRE_VIEW;
         }
 
-
-
-        UserAuthDetail userAuthDetail = LoginDetailUtil.getLoginDetail();
-        if(userAuthDetail == null){
+        if(loginUserHolder.isNotLogin()){
             modelMap.addAttribute("desc", desc);
             modelMap.addAttribute("sysMsg", "您需要先登录,才能创建需求!");
 
@@ -109,14 +114,29 @@ public class WebHomeController {
 
         RequireBO requireBO = new RequireBO();
         requireBO.setDesc(desc.trim());
-        requireBO.setCreator(userAuthDetail.getUsername());
-        requireBO.setCreatorNick(userAuthDetail.getNickname());
+        requireBO.setCreator(loginUserHolder.getEmail());
+        requireBO.setCreatorNick(loginUserHolder.getNickName());
 
         requireManager.createRequire(requireBO);
 
         return "redirect:/require";
     }
 
+
+    @RequestMapping(value = "/register", method = RequestMethod.GET)
+    public String doGetRegister(){
+        return REGISTER_VIEW;
+    }
+
+    @RequestMapping(value = "/register", method = RequestMethod.POST)
+    public String doPostRegister(UserVO userVO){
+
+        UserBO userBO = UserTransfer.toBO(userVO);
+
+        userManager.createUser(userBO);
+
+        return RedirectConstants.R_WEB_LOGIN;
+    }
 
 
 
