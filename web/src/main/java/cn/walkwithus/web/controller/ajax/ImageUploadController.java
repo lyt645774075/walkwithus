@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
-import javax.servlet.http.HttpServletRequest;
 import java.util.Map;
 
 /**
@@ -28,11 +27,11 @@ public class ImageUploadController {
 
     @RequestMapping(value = "/img/upload", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
-    public Map<String,String> imageUpload(@RequestParam("file") MultipartFile file, HttpServletRequest request){
+    public Map<String,String> imageUpload(@RequestParam("file") MultipartFile file){
 
-        System.out.println(file);
+        //System.out.println(file);
 
-            System.out.println(request.getSession().getServletContext().getRealPath("assets/img"));
+            //System.out.println(request.getSession().getServletContext().getRealPath("assets/img"));
             //file.transferTo(new File("/Users/liyangtao/temp/upload/" + file.getOriginalFilename()));
 
 
