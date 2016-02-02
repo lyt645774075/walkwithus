@@ -21,4 +21,7 @@ public interface TeamManager {
 
     public TeamBO updateTeam(TeamBO teamBO);
 
+
+    public boolean isExist(String teamId);
+
 }

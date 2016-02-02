@@ -56,7 +56,13 @@ public enum UserRole {
         this.desc = desc;
     }
 
+    public Integer getOrder() {
+        return order;
+    }
 
+    public void setOrder(Integer order) {
+        this.order = order;
+    }
 
     public static UserRole getUserRoleByCode(String code){
         Preconditions.checkNotNull(code);

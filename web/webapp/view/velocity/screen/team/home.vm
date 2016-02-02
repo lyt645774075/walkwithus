@@ -15,46 +15,52 @@
 
 
         <div class="row">
-            <span>创建于：2015-09-30</span>
+            <span>创建于：$DateUtil.shortFormat($!team.gmtCreate)</span>
         </div>
-        <div class="row">
-            <span>签名：一群人的故事，一群人的传奇</span>
-        </div>
+
 
 
         <div class="row">
 
-            ##未登录/已登录-游客
-            #if($loginUser.notLogin || $loginUser.isTeamVisitor($!team.id))
-            <a href="/acl/team/accountinfo"
-               class="small " style="margin-right:10px;">申请加入</a>
+
+        ##未登录
+            #if($loginUser.notLogin)
+                <a href="#"
+                   class="small apply" style="margin-right:10px;">申请加入</a>
+
+            #elseif($loginUser.isTeamVisitor($!team.id) && $loginUser.isApplyJoinInTeam($team.id))
+                    <a href="#"
+                       class="small " style="margin-right:10px;">等待审核</a>
+            #elseif($loginUser.isTeamVisitor($!team.id) && !$loginUser.isApplyJoinInTeam($team.id))
+                    <a href="#"
+                        class="small apply" style="margin-right:10px;">申请加入</a>
             #end
-            ##团队拥有者
+
+
+
+        ##团队拥有者
             #if($loginUser.isTeamOwner($!team.id))
-            <a href="/acl/team/accountinfo"
-               class="small " style="margin-right:10px;">财务情况</a>
-            <a href="/acl/team/member"
-               class="small " style="margin-right:10px;">人员管理</a>
-            <a href="/team/update?id=$!team.id"
-               class="small " style="margin-right:10px;">修改信息</a>
+              ##  <a href="/acl/team/accountinfo" class="small " style="margin-right:10px;">财务情况</a>
+                <a href="/acl/team/member?teamId=$!team.id"
+                   class="small " style="margin-right:10px;">人员管理</a>
+                <a href="/team/update?id=$!team.id"
+                   class="small " style="margin-right:10px;">修改信息</a>
             #end
-            ##团队管理员
+        ##团队管理员
             #if($loginUser.isTeamAdmin($!team.id))
-                <a href="/acl/team/accountinfo"
-                   class="small " style="margin-right:10px;">财务情况</a>
-                <a href="/acl/"
+               ## <a href="/acl/team/accountinfo" class="small " style="margin-right:10px;">财务情况</a>
+                <a href="/acl/team/member?teamId=$!team.id"
                    class="small " style="margin-right:10px;">人员管理</a>
             #end
             #if($loginUser.isTeamMember($!team.id))
-                <a href="/acl/team/accountinfo"
-                   class="small " style="margin-right:10px;">财务情况</a>
+               ## <a href="/acl/team/accountinfo" class="small " style="margin-right:10px;">财务情况</a>
             #end
 
 
             <div class="col-md-offset-9">
-                <span class="glyphicon glyphicon-user" style="color:green;margin-left:15px;"></span>46
-                <span class="glyphicon glyphicon-thumbs-up" style="color:green;margin-left:15px;"></span>46
-                <span class="glyphicon glyphicon-eye-open" style="color:green;margin-left:15px;"></span>4
+                <span class="glyphicon glyphicon-user" style="color:green;margin-left:15px;"></span>$!team.relaUserTeamBOList.size()
+                <span class="glyphicon glyphicon-thumbs-up" style="color:green;margin-left:15px;"></span>0
+                <span class="glyphicon glyphicon-eye-open" style="color:green;margin-left:15px;"></span>0
             </div>
 
         </div>
@@ -70,14 +76,14 @@
             本团队已开展$!team.relaTeamActivityBOList.size()次活动
         </p>
 
-        #if($!team.relaTeamActivityBOList.size() != 0)
+        #if(!$loginUser.isTeamVisitor($!team.id) && $!team.relaTeamActivityBOList.size() != 0)
             <div class="col-md-offset-2 col-md-2">
                 <a type="button" class="btn btn-success" href="/activity/create?teamId=$!team.id">创建活动</a>
             </div>
         #end
     </div>
 
-    #if($!team.relaTeamActivityBOList.size() == 0)
+    #if(!$loginUser.isTeamVisitor($!team.id) && $!team.relaTeamActivityBOList.size() == 0)
         <div class="col-sm-6 col-md-4">
             <div class="thumbnail">
                 <img src="/img/single/1.jpg" alt="...">
@@ -101,7 +107,7 @@
                     <h3>$!relaActivity.activityName</h3>
 
                     <p>一群人的故事，等待你的加入</p>
-                    <a style="margin-left: 90px;" href="/activity/home?id=$!relaActivity.activityId">查看详情</a>
+                    <a style="margin-left: 90px;" href="/activity/home?id=$!relaActivity.activityId">活动详情</a>
                 </div>
             </div>
         </div>
@@ -112,24 +118,35 @@
 
     <!-- Pager -->
 
-    <ul class="pager col-md-12">
+    #*<ul class="pager col-md-12">
         <li class="previous">
             <a href="#">← Older</a>
         </li>
         <li class="next">
             <a href="#">Newer →</a>
         </li>
-    </ul>
+    </ul>*#
 
 </div>
 
 <!-- Blog Sidebar Widgets Column -->
 <div class="col-md-4 sidebar">
 
+
+
     <div class="toplist">
         <h4><span class="label label-danger">最新动态</span></h4>
 
         <div style="background-color:white;padding-left:10px; ">
+            <span class="glyphicon glyphicon-volume-up" style="color:red"></span>
+            ：
+            <span>
+                此功能暂未开放
+            </span>
+        </div>
+
+
+        #*<div style="background-color:white;padding-left:10px; ">
             <span class="glyphicon glyphicon-volume-up" style="color:red"></span>
             ：
                         <span>
@@ -143,28 +160,40 @@
                         <span>
                         同意楼上！
                         </span>
-        </div>
-        <div style="background-color:white;padding-left:10px; ">
-            <span class="glyphicon glyphicon-volume-up" style="color:red"></span>
-            ：
-            <a href="#">李洋涛</a>
-                        <span>
-                         捐赠活动1000.00元，活动财务流水变更。
-                        </span>
-        </div>
-        <div style="background-color:white;padding-left:10px; ">
-            <span class="glyphicon glyphicon-user" style="color:green"></span>
-            <a href="#">伟:</a>
-                        <span>
-                        同意楼上！
-                        </span>
-        </div>
+        </div>*#
+
 
     </div>
 
     <div class="toplist">
-        <h4><span class="label label-danger">影响力指数</span></h4>
+        <h4><span class="label label-danger">人员情况</span></h4>
 
+        <div class="row">
+            <div class="col-lg-12">
+                <ul class="list-unstyled" style="padding: 1rem 1rem;font-size:15px;">
+
+                    #foreach($relaUser in $!team.relaUserTeamBOList)
+                        <li><a href="#">$!relaUser.userNickName</a>($!relaUser.userRole.desc)<span
+                                class="badge pull-right">0</span>
+                        </li>
+                    #end
+
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="toplist">
+        <h4><span class="label label-danger">影响力指数</span></h4>
+        <div style="background-color:white;padding-left:10px; ">
+            <span class="glyphicon glyphicon-volume-up" style="color:red"></span>
+            ：
+            <span>
+                此功能暂未开放
+            </span>
+        </div>
+
+        #*
         <div class="row">
             <div class="col-lg-12">
                 <ul class="list-unstyled" style="padding: 1rem 1rem;font-size:15px;">
@@ -183,51 +212,30 @@
                     </li>
                     <li><a href="#">成员结构</a><span class="badge pull-right">300</span>
                     </li>
-
-
                 </ul>
             </div>
-            <!-- /.col-lg-6 -->
-        </div>
-        <!-- /.row -->
+        </div>*#
     </div>
 
-    <div class="toplist">
-        <h4><span class="label label-danger">人员情况</span></h4>
 
-        <div class="row">
-            <div class="col-lg-12">
-                <ul class="list-unstyled" style="padding: 1rem 1rem;font-size:15px;">
+</div>
 
-                    <li><a href="#">苏愿</a>（创建者）<span class="badge pull-right">345</span>
-                    </li>
-                    <li><a href="#">鲁虹伟</a>（管理员）<span class="badge pull-right">345</span>
-                    </li>
-                    <li><a href="#">李洋涛</a>（管理员）<span class="badge pull-right">345</span>
-                    </li>
-                    <li><a href="#">罗正发</a><span class="badge pull-right">345</span>
-                    </li>
 
-                    <li><a href="#">罗正发</a><span class="badge pull-right">345</span>
-                    </li>
-                    <li><a href="#">罗正发</a><span class="badge pull-right">345</span>
-                    </li>
-                    <li><a href="#">罗正发</a><span class="badge pull-right">345</span>
-                    </li>
+<form method="post" action="/acl/team/applyjoin" id="applyForm">
+    <input type="hidden" name="${_csrf.parameterName}"
+           value="${_csrf.token}">
+    <input type="hidden" name="teamId" value="$!team.id">
 
-                    <li><a href="#">罗正发</a><span class="badge pull-right">345</span>
-                    </li>
-                    <li><a href="#">罗正发</a><span class="badge pull-right">345</span>
-                    </li>
+</form>
 
-                    <li><a href="#">罗正发</a><span class="badge pull-right">345</span>
-                    </li>
-                </ul>
-            </div>
-            <!-- /.col-lg-6 -->
-        </div>
-        <!-- /.row -->
-    </div>
-       
+<script>
+    $(".apply").click(function () {
+        $("#applyForm").submit();
+    });
+
+</script>
+
+
+
 
 

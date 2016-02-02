@@ -7,6 +7,7 @@ package cn.walkwithus.core.transfer;
 
 import cn.walkwithus.core.domain.RelaUserTeamBO;
 import cn.walkwithus.persistence.dal.dataobject.RelaUserTeamDO;
+import cn.walkwithus.security.role.UserRole;
 import com.google.common.base.Preconditions;
 import com.google.common.collect.Lists;
 import org.springframework.util.CollectionUtils;
@@ -29,7 +30,7 @@ public class RelaUserTeamTransfer {
         bo.setGmtCreate(relaUserTeamDO.getGmtCreate());
         bo.setGmtModified(relaUserTeamDO.getGmtModified());
         bo.setUserId(relaUserTeamDO.getUserId());
-        bo.setUserRole(relaUserTeamDO.getUserRole());
+        bo.setUserRole(UserRole.getUserRoleByCode(relaUserTeamDO.getUserRole()));
         bo.setUserNickName(relaUserTeamDO.getUserNickName());
         bo.setTeamName(relaUserTeamDO.getTeamName());
         bo.setTeamId(relaUserTeamDO.getTeamId());

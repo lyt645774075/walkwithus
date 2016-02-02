@@ -55,7 +55,7 @@ public class TeamManagerImpl implements TeamManager {
 
         List<RelaTeamActivityDO> allActivity = relaTeamActivityDAO.findAllActivityByTeamId(id);
 
-        List<RelaUserTeamDO> allUser = relaUserTeamDAO.findAllUserByTeamId(id);
+        List<RelaUserTeamDO> allUser = relaUserTeamDAO.findAllUserByTeamIdAndValid(id, true);
 
         return SingleTeamBuilder.newInstance().from(teamDO).fromActivityList(allActivity)
             .fromUserList(allUser).build();
@@ -108,5 +108,13 @@ public class TeamManagerImpl implements TeamManager {
         }
 
         return TeamTransfer.toBO(newTeam);
+    }
+
+    @Override
+    public boolean isExist(String teamId) {
+        Preconditions.checkNotNull(teamId);
+
+        return teamDAO.exists(teamId);
+
     }
 }

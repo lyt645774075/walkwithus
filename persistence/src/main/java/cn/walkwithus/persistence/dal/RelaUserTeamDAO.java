@@ -18,9 +18,12 @@ public interface RelaUserTeamDAO extends MongoRepository<RelaUserTeamDO, String>
 
     public RelaUserTeamDO findByUserIdAndTeamId(String userId, String teamId);
 
-
     public List<RelaUserTeamDO> findAllTeamByUserId(String userId);
 
     public List<RelaUserTeamDO> findAllUserByTeamId(String teamId);
+
+    public List<RelaUserTeamDO> findAllUserByTeamIdAndValid(String teamId, boolean valid);
+
+    public void deleteOneByUserIdAndTeamId(String userId, String teamId);
 
 }

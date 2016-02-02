@@ -115,11 +115,27 @@ public class LoginUserHolder {
         return userRole == UserRole.MEMBER ? true : false;
     }
 
-    public boolean isTeamVistor(String teamId){
+    public boolean isTeamVisitor(String teamId){
 
         UserRole userRole = getUserRoleInTeam(teamId);
 
         return userRole == UserRole.VISITOR ? true : false;
+    }
+
+    /**
+     * 是否已经申请加入团队
+     * @param teamId
+     * @return
+     */
+    public boolean isApplyJoinInTeam(String teamId){
+
+        RelaUserTeamDO relaUserTeamDO = relaUserTeamDAO.findByUserIdAndTeamId(getId(), teamId);
+
+        if(relaUserTeamDO != null && !relaUserTeamDO.isValid()){
+            return true;
+        }
+
+        return false;
     }
 
     public boolean isActivityOwner(String activityId){
@@ -145,8 +161,18 @@ public class LoginUserHolder {
 
 
     public UserRole getUserRoleInTeam(String teamId){
+
+        if(isNotLogin()){
+            return UserRole.VISITOR;
+        }
+
         Preconditions.checkNotNull(teamId);
         RelaUserTeamDO relaUserTeamDO = relaUserTeamDAO.findByUserIdAndTeamId(getId(), teamId);
+
+        //如果未生效,一律是游客
+        if(relaUserTeamDO!= null && !relaUserTeamDO.isValid()){
+            return UserRole.VISITOR;
+        }
 
         return relaUserTeamDO == null ? UserRole.VISITOR : UserRole.getUserRoleByCode(relaUserTeamDO.getUserRole());
     }

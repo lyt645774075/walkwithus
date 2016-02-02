@@ -53,6 +53,7 @@
         background-color: white;
         padding: 15px;
         margin-bottom: 10px;
+        min-height: 200px;
     }
 
     .main-content-white {
@@ -107,6 +108,12 @@
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color:white;">团队<b class="caret"></b></a>
                     <ul class="dropdown-menu">
+                        #if($loginUser.allTeam.size() == 0)
+                            <li>
+                                <a href="#">您还没有加入任何团队</a>
+                            </li>
+                        #end
+
                         #foreach($team in $loginUser.allTeam)
                             <li>
                                 <a href="/team/home?id=$team.teamId">$team.teamName</a>

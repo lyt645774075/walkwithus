@@ -5,6 +5,8 @@
 
 package cn.walkwithus.core.domain;
 
+import cn.walkwithus.security.role.UserRole;
+
 import java.util.Date;
 
 /**
@@ -27,7 +29,7 @@ public class RelaUserTeamBO {
 
     private String userNickName;
 
-    private String userRole;
+    private UserRole userRole;
 
     private boolean valid;
 
@@ -88,11 +90,11 @@ public class RelaUserTeamBO {
         this.userNickName = userNickName;
     }
 
-    public String getUserRole() {
+    public UserRole getUserRole() {
         return userRole;
     }
 
-    public void setUserRole(String userRole) {
+    public void setUserRole(UserRole userRole) {
         this.userRole = userRole;
     }
 
