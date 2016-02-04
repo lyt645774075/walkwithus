@@ -18,6 +18,6 @@ public interface RelaTeamActivityDAO extends MongoRepository<RelaTeamActivityDO,
 
     public List<RelaTeamActivityDO> findAllActivityByTeamId(String teamId);
 
-    public RelaTeamActivityDO findTeamByActivityId(String activity);
+    public RelaTeamActivityDO findTeamByActivityId(String activityId);
 
 }

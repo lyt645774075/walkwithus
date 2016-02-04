@@ -27,6 +27,10 @@ public class RelaTeamActivityBO {
 
     private String activityName;
 
+    private Date activityBeginDate;
+
+    private Date activityEndDate;
+
     private boolean enable;
 
 
@@ -92,5 +96,21 @@ public class RelaTeamActivityBO {
 
     public void setEnable(boolean enable) {
         this.enable = enable;
+    }
+
+    public Date getActivityBeginDate() {
+        return activityBeginDate;
+    }
+
+    public void setActivityBeginDate(Date activityBeginDate) {
+        this.activityBeginDate = activityBeginDate;
+    }
+
+    public Date getActivityEndDate() {
+        return activityEndDate;
+    }
+
+    public void setActivityEndDate(Date activityEndDate) {
+        this.activityEndDate = activityEndDate;
     }
 }

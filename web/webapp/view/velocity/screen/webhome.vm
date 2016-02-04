@@ -11,7 +11,7 @@
 
     <div class="row">
         <div class="col-lg-12" >
-            <img class="img-responsive" src="/img/900x300.jpg" style="width: 100%" >
+            <img class="img-responsive" src="/img/900x300.jpg" style="width: 100%; max-height: 280px;" >
         </div>
     </div>
 

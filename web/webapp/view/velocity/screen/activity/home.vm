@@ -2,73 +2,67 @@
 
 <div class="row">
 
-    <div class="col-md-8">
+    <div class="container">
 
-        <div class="row">
-            <div class="col-lg-12">
+        <div class="col-md-12" style="background-color: white;">
 
-                <h3 class="page-header" style="border-bottom:2px solid #18BC9C;">
-                    <small>
-                        <span class="glyphicon glyphicon-grain" style="color:green"></span>
-                        <span class="glyphicon glyphicon-usd" style="color:green"></span>
-                    </small>
-                    $!activity.name
-                    <p></p>
+            <h3 class="page-header" style="border-bottom:2px solid #18BC9C; margin-bottom: 10px;">
+                <small>
+                    <span class="glyphicon glyphicon-grain" style="color:green"></span>
+                    <span class="glyphicon glyphicon-usd" style="color:green"></span>
+                </small>
+                $!activity.name
+                <p></p>
 
-                    <p>
-                        <small><span class="glyphicon glyphicon-share-alt"></span></small>
-                        <a href="/team/home?id=$!activity.domainId"
-                           class="small">$!activity.ownerName</a>
-                    </p>
+                <p>
+                    <small><span class="glyphicon glyphicon-share-alt"></span></small>
+                    <a href="/team/home?id=$!activity.domainId"
+                       class="small">$!activity.ownerName</a>
+                </p>
 
-                    <p>
-                        <small><span class="glyphicon glyphicon-time"></span></small>
-                        <small>$!activity.beginDate 至 $!activity.endDate</small>
-                    </p>
+                <p>
+                    <small><span class="glyphicon glyphicon-time"></span></small>
+                    <small>$!activity.beginDate 至 $!activity.endDate</small>
+                </p>
 
-                    <p>
-                        <small><span class="glyphicon glyphicon-globe"></span></small>
-                        <small>$!activity.address</small>
-                    </p>
+                <p>
+                    <small><span class="glyphicon glyphicon-globe"></span></small>
+                    <small>$!activity.address</small>
+                </p>
 
-                    <div>
-                        <a href="/acl/activity/accountinfo?id=$!activity.id"
-                           class="small " style="margin-right:10px;">财务情况</a>
-                        <a href="/acl/activity/member"
-                           class="small " style="margin-right:10px;">人员管理</a>
-                        <a href="/activity/update?id=$!activity.id"
-                           class="small " style="margin-right:10px;">活动修改</a>
-                    </div>
+                <div>
+                    <a href="/acl/activity/accountinfo?id=$!activity.id"
+                       class="small " style="margin-right:10px;">财务情况</a>
+                    <a href="/acl/activity/member"
+                       class="small " style="margin-right:10px;">人员管理</a>
+                    <a href="/activity/update?id=$!activity.id"
+                       class="small " style="margin-right:10px;">活动修改</a>
+                </div>
 
 
-                </h3>
+            </h3>
 
-            </div>
         </div>
 
 
-        <div class="main-content-white">
+        <div class="main-content-white col-md-8">
             $!activity.desc
         </div>
 
 
+        <!-- Blog Sidebar Widgets Column -->
+        <div class="col-md-4 sidebar">
 
+            <div class="toplist">
+                <h4><span class="label label-danger">影响力指数</span></h4>
 
-    </div>
-
-    <!-- Blog Sidebar Widgets Column -->
-    <div class="col-md-4 sidebar" style="margin-top:200px">
-
-        <div class="toplist">
-            <h4><span class="label label-danger">影响力指数</span></h4>
-
-            <div style="background-color:white;padding-left:10px; ">
-                <span class="glyphicon glyphicon-volume-up" style="color:red"></span>
-                ：
+                <div style="background-color:white;padding-left:10px; ">
+                    <span class="glyphicon glyphicon-volume-up" style="color:red"></span>
+                    ：
             <span>
                 此功能暂未开放
             </span>
-            </div>
+                </div>
 
             #*<div class="row">
                 <div class="col-lg-12">
@@ -94,21 +88,21 @@
                 </div>
                 <!-- /.col-lg-6 -->
             </div>*#
-            <!-- /.row -->
-        </div>
+                <!-- /.row -->
+            </div>
 
-        <!-- Side Widget Well -->
+            <!-- Side Widget Well -->
 
-        <div class="toplist">
-            <h4><span class="label label-danger">最新动态</span></h4>
+            <div class="toplist">
+                <h4><span class="label label-danger">最新动态</span></h4>
 
-            <div style="background-color:white;padding-left:10px; ">
-                <span class="glyphicon glyphicon-volume-up" style="color:red"></span>
-                ：
+                <div style="background-color:white;padding-left:10px; ">
+                    <span class="glyphicon glyphicon-volume-up" style="color:red"></span>
+                    ：
             <span>
                 此功能暂未开放
             </span>
-            </div>
+                </div>
 
             #*<div style="background-color:white;padding-left:10px; ">
                 <span class="glyphicon glyphicon-volume-up" style="color:red"></span>
@@ -127,43 +121,43 @@
             </div>*#
 
 
-        </div>
-
-        <!-- Blog Categories Well -->
-        <div class="toplist">
-            <h4><span class="label label-danger">人员情况</span></h4>
-
-            <div class="row">
-                <div class="col-lg-12">
-                    <ul class="list-unstyled" style="padding: 1rem 1rem;font-size:15px;">
-
-                        <li><a href="#">苏愿</a>（创建者）<span class="badge pull-right">345</span>
-                        </li>
-                        <li><a href="#">鲁虹伟</a>（管理员）<span class="badge pull-right">345</span>
-                        </li>
-                        <li><a href="#">李洋涛</a>（管理员）<span class="badge pull-right">345</span>
-                        </li>
-                        <li><a href="#">罗正发</a><span class="badge pull-right">345</span>
-                        </li>
-
-
-                    </ul>
-                </div>
-                <!-- /.col-lg-6 -->
             </div>
-            <!-- /.row -->
-        </div>
 
-        <div class="toplist">
-            <h4><span class="label label-danger">个人影响力排行</span></h4>
+            <!-- Blog Categories Well -->
+            <div class="toplist">
+                <h4><span class="label label-danger">人员情况</span></h4>
 
-            <div style="background-color:white;padding-left:10px; ">
-                <span class="glyphicon glyphicon-volume-up" style="color:red"></span>
-                ：
+                <div class="row">
+                    <div class="col-lg-12">
+                        <ul class="list-unstyled" style="padding: 1rem 1rem;font-size:15px;">
+
+                            <li><a href="#">苏愿</a>（创建者）<span class="badge pull-right">345</span>
+                            </li>
+                            <li><a href="#">鲁虹伟</a>（管理员）<span class="badge pull-right">345</span>
+                            </li>
+                            <li><a href="#">李洋涛</a>（管理员）<span class="badge pull-right">345</span>
+                            </li>
+                            <li><a href="#">罗正发</a><span class="badge pull-right">345</span>
+                            </li>
+
+
+                        </ul>
+                    </div>
+                    <!-- /.col-lg-6 -->
+                </div>
+                <!-- /.row -->
+            </div>
+
+            <div class="toplist">
+                <h4><span class="label label-danger">个人影响力排行</span></h4>
+
+                <div style="background-color:white;padding-left:10px; ">
+                    <span class="glyphicon glyphicon-volume-up" style="color:red"></span>
+                    ：
             <span>
                 此功能暂未开放
             </span>
-            </div>
+                </div>
 
             #*<div class="row">
                 <div class="col-lg-12">
@@ -195,9 +189,11 @@
                 </div>
                 <!-- /.col-lg-6 -->
             </div>*#
-            <!-- /.row -->
-        </div>
+                <!-- /.row -->
+            </div>
 
+
+        </div>
 
     </div>
 

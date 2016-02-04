@@ -33,6 +33,8 @@ public class RelaTeamActivityTransfer {
         bo.setTeamName(relaTeamActivityDO.getTeamName());
         bo.setTeamId(relaTeamActivityDO.getTeamId());
         bo.setEnable(relaTeamActivityDO.isEnable());
+        bo.setActivityBeginDate(relaTeamActivityDO.getActivityBeginDate());
+        bo.setActivityEndDate(relaTeamActivityDO.getActivityEndDate());
 
         return bo;
     }

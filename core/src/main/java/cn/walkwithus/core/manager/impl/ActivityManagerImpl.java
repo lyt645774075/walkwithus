@@ -68,6 +68,8 @@ public class ActivityManagerImpl implements ActivityManager{
             relaTeamActivityDO.setGmtModified(now);
             relaTeamActivityDO.setActivityId(activityDO.getId());
             relaTeamActivityDO.setActivityName(activityDO.getName());
+            relaTeamActivityDO.setActivityBeginDate(activityDO.getBeginDate());
+            relaTeamActivityDO.setActivityEndDate(activityDO.getEndDate());
             relaTeamActivityDO.setTeamId(activityBO.getDomainId());
             relaTeamActivityDO.setTeamName(activityBO.getOwnerName());
             relaTeamActivityDO.setEnable(true);
@@ -94,11 +96,43 @@ public class ActivityManagerImpl implements ActivityManager{
     public ActivityBO updateActivity(ActivityBO activityBO) {
         Preconditions.checkArgument(!StringUtils.isEmpty(activityBO.getId()), "不能更新活动,活动id为空");
 
-        activityBO.setGmtModified(new Date());
+        ActivityDO oldActivity = activityDAO.findOne(activityBO.getId());
+        if(oldActivity == null){
+            throw new IllegalStateException("活动不存在,不能更新");
+        }
 
+        Date now = new Date();
+        activityBO.setGmtModified(now);
         ActivityDO activityDO = ActivityTransfer.toDO(activityBO);
-
         activityDO = activityDAO.save(activityDO);
+
+        //更新团队-活动关系
+        if(!activityDO.getName().equals(oldActivity.getName())
+                || !activityDO.getBeginDate().equals(oldActivity.getBeginDate())
+                || !activityDO.getEndDate().equals(oldActivity.getEndDate())){
+
+            RelaTeamActivityDO relaTeamActivityDO = relaTeamActivityDAO.findTeamByActivityId(activityDO.getId());
+            if(relaTeamActivityDO == null) {
+                relaTeamActivityDO = new RelaTeamActivityDO();
+
+                relaTeamActivityDO.setGmtCreate(now);
+                relaTeamActivityDO.setGmtModified(now);
+                relaTeamActivityDO.setActivityId(activityDO.getId());
+                relaTeamActivityDO.setActivityName(activityDO.getName());
+                relaTeamActivityDO.setActivityBeginDate(activityDO.getBeginDate());
+                relaTeamActivityDO.setActivityEndDate(activityDO.getEndDate());
+                relaTeamActivityDO.setTeamId(activityBO.getDomainId());
+                relaTeamActivityDO.setTeamName(activityBO.getOwnerName());
+                relaTeamActivityDO.setEnable(true);
+            }else{
+                relaTeamActivityDO.setGmtModified(now);
+                relaTeamActivityDO.setActivityName(activityDO.getName());
+                relaTeamActivityDO.setActivityBeginDate(activityDO.getBeginDate());
+                relaTeamActivityDO.setActivityEndDate(activityDO.getEndDate());
+            }
+
+            relaTeamActivityDAO.save(relaTeamActivityDO);
+        }
 
         return ActivityTransfer.toBO(activityDO);
     }

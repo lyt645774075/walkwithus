@@ -22,6 +22,8 @@ public class DateUtil {
 
     private static final String LONG_DATE = "yyyy-MM-dd HH:mm:ss";
 
+    private static final String MIDDLE_DATE = "yyyy-MM-dd HH:mm:ss";
+
     public static Date parseStr(String dateStr, String format){
 
         Preconditions.checkArgument(!StringUtils.isEmpty(dateStr), "dateStr不能为空");
@@ -49,7 +51,9 @@ public class DateUtil {
 
     public static String shortFormat(Date date){
 
-        Preconditions.checkArgument(!StringUtils.isEmpty(date), "date不能为空");
+        if(date == null){
+            return null;
+        }
 
         SimpleDateFormat sdf = new SimpleDateFormat(SHORT_DATE);
 
@@ -59,9 +63,23 @@ public class DateUtil {
 
     public static String longFormat(Date date){
 
-        Preconditions.checkArgument(!StringUtils.isEmpty(date), "date不能为空");
+        if(date == null){
+            return null;
+        }
 
         SimpleDateFormat sdf = new SimpleDateFormat(LONG_DATE);
+
+        return sdf.format(date);
+
+    }
+
+    public static String middleFormat(Date date){
+
+        if(date == null){
+            return null;
+        }
+
+        SimpleDateFormat sdf = new SimpleDateFormat(MIDDLE_DATE);
 
         return sdf.format(date);
 

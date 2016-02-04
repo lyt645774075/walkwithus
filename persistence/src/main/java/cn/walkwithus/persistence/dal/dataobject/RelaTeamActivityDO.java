@@ -7,6 +7,8 @@ package cn.walkwithus.persistence.dal.dataobject;
 
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.Date;
+
 /**
  * @author yangtao.lyt
  * @version $Id: RelaTeamActivityDO, v 0.1 2016-01-29 13:04 yangtao.lyt Exp $
@@ -21,6 +23,10 @@ public class RelaTeamActivityDO extends BaseMongoObject {
     private String activityId;
 
     private String activityName;
+
+    private Date activityBeginDate;
+
+    private Date activityEndDate;
 
     private boolean enable;
 
@@ -63,5 +69,21 @@ public class RelaTeamActivityDO extends BaseMongoObject {
 
     public void setEnable(boolean enable) {
         this.enable = enable;
+    }
+
+    public Date getActivityBeginDate() {
+        return activityBeginDate;
+    }
+
+    public void setActivityBeginDate(Date activityBeginDate) {
+        this.activityBeginDate = activityBeginDate;
+    }
+
+    public Date getActivityEndDate() {
+        return activityEndDate;
+    }
+
+    public void setActivityEndDate(Date activityEndDate) {
+        this.activityEndDate = activityEndDate;
     }
 }
