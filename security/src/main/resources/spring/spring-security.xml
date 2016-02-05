@@ -1,8 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-  ~ Alipay.com Inc.
-  ~ Copyright (c) 2004-2016 All Rights Reserved
-  -->
 
 <beans:beans xmlns="http://www.springframework.org/schema/security"
              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"

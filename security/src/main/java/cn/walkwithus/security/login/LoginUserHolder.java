@@ -1,8 +1,3 @@
-/*
- * Alipay.com Inc.
- * Copyright (c) 2004-2016 All Rights Reserved
- */
-
 package cn.walkwithus.security.login;
 
 import cn.walkwithus.persistence.dal.RelaUserActivityDAO;

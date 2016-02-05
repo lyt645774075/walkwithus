@@ -1,10 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!--
-  ~ Alipay.com Inc.
-  ~ Copyright (c) 2004-2016 All Rights Reserved
-  -->
-
 <configuration>
     <!--定义日志文件的存储地址 勿在 LogBack 的配置中使用相对路径-->
     <property name="LOG_HOME" value="${logRoot}" />
