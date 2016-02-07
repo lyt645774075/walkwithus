@@ -20,7 +20,7 @@
         <div class="form-group">
             <label class="col-sm-2 control-label" for="name">活动名称</label>
 
-            <div class="col-sm-8">
+            <div class="col-sm-9">
                 <input class="form-control" type="text" id="name" name="name" placeholder="请输入活动名称"
                        value="$!activity.name">
             </div>
@@ -28,7 +28,7 @@
         <div class="form-group">
             <label class="col-sm-2 control-label" for="name">隶属于</label>
 
-            <div class="col-sm-8">
+            <div class="col-sm-9">
                 <select name="domainId" class="form-control">
                     #foreach($team in $loginUser.allTeam)
                         <option value="$!team.teamId" #if($!teamId == $!team.teamId) selected #end>$!team.teamName</option>
@@ -40,13 +40,13 @@
         <div class="form-group">
             <label class="col-sm-2 control-label" for="">时间</label>
 
-            <div class="col-sm-3">
+            <div class="col-sm-4">
                 <input class="form-control form_datetime" type="text" id="beginDate" name="beginDate"
                        placeholder="活动开始时间" readonly value="$!activity.beginDate">
             </div>
             <label class="col-sm-1" style="text-align:center">--</label>
 
-            <div class="col-sm-3">
+            <div class="col-sm-4">
                 <input class="form-control form_datetime" type="text" id="endDate" name="endDate" placeholder="活动结束时间"
                        readonly value="$!activity.endDate">
             </div>
@@ -55,7 +55,7 @@
         <div class="form-group">
             <label class="col-sm-2 control-label" for="">地点</label>
 
-            <div class="col-sm-8">
+            <div class="col-sm-9">
                 <input class="form-control" type="text" id="address" name="address" placeholder="活动地点"
                        value="$!activity.address">
             </div>
@@ -64,7 +64,7 @@
         <div class="form-group">
             <label class="col-sm-2 control-label" for="">详情</label>
 
-            <div class="col-sm-8">
+            <div class="col-sm-9">
                 <div id="summernote">
                     $!{activity.desc}
                 </div>

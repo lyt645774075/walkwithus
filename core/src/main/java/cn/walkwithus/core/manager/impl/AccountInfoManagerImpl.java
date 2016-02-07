@@ -90,12 +90,31 @@ public class AccountInfoManagerImpl implements AccountInfoManager {
     }
 
     @Override
-    public AccountInfoBO passAccountInfo(String id) {
-        return null;
+    public void passAccountInfo(String id) {
+
+        Preconditions.checkNotNull(id);
+        AccountInfoDO accountInfoDO = accountInfoDAO.findOne(id);
+
+        if(accountInfoDO != null){
+            accountInfoDO.setAuditUserId(loginUserHolder.getId());
+            accountInfoDO.setAuditUserNickName(loginUserHolder.getNickName());
+            accountInfoDO.setStatus(AccountInfoStatus.PASS.getCode());
+            accountInfoDAO.save(accountInfoDO);
+        }
+
     }
 
     @Override
-    public AccountInfoBO unPassAccountInfo(String id) {
-        return null;
+    public void unPassAccountInfo(String id) {
+
+        Preconditions.checkNotNull(id);
+        AccountInfoDO accountInfoDO = accountInfoDAO.findOne(id);
+
+        if(accountInfoDO != null){
+            accountInfoDO.setAuditUserId(loginUserHolder.getId());
+            accountInfoDO.setAuditUserNickName(loginUserHolder.getNickName());
+            accountInfoDO.setStatus(AccountInfoStatus.UNPASS.getCode());
+            accountInfoDAO.save(accountInfoDO);
+        }
     }
 }

@@ -2,7 +2,7 @@
 
 
 
-<div class="jumbotron" style="background-color:white; padding:20px; margin-bottom:10px; border-radius: 0px;">
+<div class="jumbotron" style="background-color:white; padding:20px; margin-bottom:0px; border-radius: 0px;">
 
     <div class="container">
         <div class="row">
@@ -15,7 +15,7 @@
 
 
         <div class="row">
-            <span>创建于：$DateUtil.shortFormat($!team.gmtCreate)</span>
+            <small><span>创建于：$DateUtil.shortFormat($!team.gmtCreate)</span></small>
         </div>
 
 

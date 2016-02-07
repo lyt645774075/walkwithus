@@ -54,6 +54,8 @@ public class ActivityTransfer {
         activityVO.setDesc(bo.getDesc());
         activityVO.setAddress(bo.getAddress());
 
+        activityVO.setRelaUserActivityBOList(bo.getRelaUserActivityBOList());
+
         activityVO.setDomainObj(bo.getDomainObj());
         activityVO.setDomainId(bo.getDomainId());
         activityVO.setOwnerName(bo.getOwnerName());

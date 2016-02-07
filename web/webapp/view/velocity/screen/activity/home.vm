@@ -4,44 +4,71 @@
 
     <div class="container">
 
-        <div class="col-md-12" style="background-color: white;">
+        <div class="jumbotron" style="background-color:white; padding:20px; margin-bottom:0px; border-radius: 0px;">
+            <div class="container">
+                <div class="col-md-12">
+                    <div class="row">
+                    <h3>
+                        $!activity.name
+                            <span class="glyphicon glyphicon-grain" style="color:green"></span>
+                            <span class="glyphicon glyphicon-usd" style="color:green"></span>
+                    </h3>
+                    </div>
+                </div>
+                <div class="col-md-9">
 
-            <h3 class="page-header" style="border-bottom:2px solid #18BC9C; margin-bottom: 10px;">
-                <small>
-                    <span class="glyphicon glyphicon-grain" style="color:green"></span>
-                    <span class="glyphicon glyphicon-usd" style="color:green"></span>
-                </small>
-                $!activity.name
-                <p></p>
+                    <div class="row">
+                        <small><span class="glyphicon glyphicon-time"></span></small>
+                        <small>$!activity.beginDate 至 $!activity.endDate</small>
+                    </div>
 
-                <p>
-                    <small><span class="glyphicon glyphicon-share-alt"></span></small>
-                    <a href="/team/home?id=$!activity.domainId"
-                       class="small">$!activity.ownerName</a>
-                </p>
+                    <div class="row">
+                        <small><span class="glyphicon glyphicon-globe"></span></small>
+                        <small>$!activity.address</small>
+                    </div>
+                    <div class="row">
 
-                <p>
-                    <small><span class="glyphicon glyphicon-time"></span></small>
-                    <small>$!activity.beginDate 至 $!activity.endDate</small>
-                </p>
 
-                <p>
-                    <small><span class="glyphicon glyphicon-globe"></span></small>
-                    <small>$!activity.address</small>
-                </p>
+                    ##未登录
+                        #if($loginUser.notLogin)
+                            <a href="#"
+                               class="small apply" style="margin-right:10px;">申请加入</a>
 
-                <div>
-                    <a href="/acl/activity/accountinfo?id=$!activity.id"
-                       class="small " style="margin-right:10px;">财务情况</a>
-                    <a href="/acl/activity/member"
-                       class="small " style="margin-right:10px;">人员管理</a>
-                    <a href="/activity/update?id=$!activity.id"
-                       class="small " style="margin-right:10px;">活动修改</a>
+                        #elseif($loginUser.isActivityVisitor($!activity.id) && $loginUser.isApplyJoinInActivity($activity.id))
+                            <a href="#"
+                               class="small " style="margin-right:10px;">等待审核</a>
+                        #elseif($loginUser.isActivityVisitor($!activity.id) && !$loginUser.isApplyJoinInActivity($activity.id))
+                            <a href="#"
+                               class="small apply" style="margin-right:10px;">申请加入</a>
+                        #end
+
+
+
+                    ##活动管理员
+                        #if($loginUser.isActivityAdmin($!activity.id))
+                            <a href="/acl/activity/accountinfo?id=$!activity.id" class="small " style="margin-right:10px;">财务情况</a>
+                            <a href="/acl/activity/member?activityId=$!activity.id"
+                               class="small " style="margin-right:10px;">人员管理</a>
+                            <a href="/activity/update?id=$!activity.id"
+                               class="small " style="margin-right:10px;">活动修改</a>
+                        #end
+
+
+                    </div>
                 </div>
 
+                <div class="col-md-3">
 
-            </h3>
+                    <div class="row">
+                        <h3>
+                            <span class="glyphicon glyphicon-share-alt"></span>
+                            <a href="/team/home?id=$!activity.domainId">$!activity.ownerName</a>
+                        </h3>
+                    </div>
 
+
+                </div>
+            </div>
         </div>
 
 
@@ -131,15 +158,11 @@
                     <div class="col-lg-12">
                         <ul class="list-unstyled" style="padding: 1rem 1rem;font-size:15px;">
 
-                            <li><a href="#">苏愿</a>（创建者）<span class="badge pull-right">345</span>
-                            </li>
-                            <li><a href="#">鲁虹伟</a>（管理员）<span class="badge pull-right">345</span>
-                            </li>
-                            <li><a href="#">李洋涛</a>（管理员）<span class="badge pull-right">345</span>
-                            </li>
-                            <li><a href="#">罗正发</a><span class="badge pull-right">345</span>
-                            </li>
-
+                            #foreach($relaUser in $!activity.relaUserActivityBOList)
+                                <li><a href="#">$!relaUser.userNickName</a>($!relaUser.userRole.desc)<span
+                                        class="badge pull-right">0</span>
+                                </li>
+                            #end
 
                         </ul>
                     </div>
@@ -196,6 +219,20 @@
         </div>
 
     </div>
+
+    <form method="post" action="/acl/activity/applyjoin" id="applyForm">
+        <input type="hidden" name="${_csrf.parameterName}"
+               value="${_csrf.token}">
+        <input type="hidden" name="activityId" value="$!activity.id">
+
+    </form>
+
+    <script>
+        $(".apply").click(function () {
+            $("#applyForm").submit();
+        });
+
+    </script>
 
 
 

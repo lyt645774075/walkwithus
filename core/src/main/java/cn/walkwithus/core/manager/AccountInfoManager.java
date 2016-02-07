@@ -22,9 +22,9 @@ public interface AccountInfoManager {
 
     public List<AccountInfoBO> queryActivityAccountInfo(String activityId);
 
-    public AccountInfoBO passAccountInfo(String id);
+    public void passAccountInfo(String id);
 
-    public AccountInfoBO unPassAccountInfo(String id);
+    public void unPassAccountInfo(String id);
 
     public List<AccountInfoBO> queryAccountInfoByDomainObjAndDomainId(DomainObj domainObj, String domainId);
 

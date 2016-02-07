@@ -133,11 +133,27 @@ public class LoginUserHolder {
         return false;
     }
 
-    public boolean isActivityOwner(String activityId){
+    /**
+     * 是否已经申请加入活动
+     * @param activityId
+     * @return
+     */
+    public boolean isApplyJoinInActivity(String activityId){
+
+        RelaUserActivityDO relaUserActivityDO = relaUserActivityDAO.findByUserIdAndActivityId(getId(), activityId);
+
+        if(relaUserActivityDO != null && !relaUserActivityDO.isValid()){
+            return true;
+        }
+
+        return false;
+    }
+
+    public boolean isActivityAdmin(String activityId){
 
         UserRole userRole = getUserRoleInActivity(activityId);
 
-        return userRole == UserRole.OWNER ? true : false;
+        return userRole == UserRole.ADMIN ? true : false;
     }
 
     public boolean isActivityMember(String activityId){
@@ -147,7 +163,7 @@ public class LoginUserHolder {
         return userRole == UserRole.MEMBER ? true : false;
     }
 
-    public boolean isActivityVistor(String activityId){
+    public boolean isActivityVisitor(String activityId){
 
         UserRole userRole = getUserRoleInActivity(activityId);
 
@@ -173,8 +189,17 @@ public class LoginUserHolder {
     }
 
     public UserRole getUserRoleInActivity(String activityId){
+
+        if(isNotLogin()){
+            return UserRole.VISITOR;
+        }
+
         Preconditions.checkNotNull(activityId);
         RelaUserActivityDO relaUserActivityDO = relaUserActivityDAO.findByUserIdAndActivityId(getId(), activityId);
+
+        if(relaUserActivityDO != null && !relaUserActivityDO.isValid()){
+            return UserRole.VISITOR;
+        }
 
         return relaUserActivityDO == null ? UserRole.VISITOR : UserRole.getUserRoleByCode(relaUserActivityDO.getUserRole());
     }

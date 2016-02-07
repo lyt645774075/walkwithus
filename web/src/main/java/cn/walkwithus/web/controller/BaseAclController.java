@@ -2,8 +2,11 @@ package cn.walkwithus.web.controller;
 
 
 import cn.walkwithus.core.domain.AccountInfoBO;
+import cn.walkwithus.core.domain.RelaUserActivityBO;
 import cn.walkwithus.core.domain.RelaUserTeamBO;
 import cn.walkwithus.core.manager.AccountInfoManager;
+import cn.walkwithus.core.manager.ActivityManager;
+import cn.walkwithus.core.manager.RelaUserActivityManager;
 import cn.walkwithus.core.manager.RelaUserTeamManager;
 import cn.walkwithus.core.manager.TeamManager;
 import cn.walkwithus.security.login.LoginUserHolder;
@@ -63,7 +66,13 @@ public class BaseAclController {
     private TeamManager teamManager;
 
     @Autowired
+    private ActivityManager activityManager;
+
+    @Autowired
     private RelaUserTeamManager relaUserTeamManager;
+
+    @Autowired
+    private RelaUserActivityManager relaUserActivityManager;
 
     @RequestMapping(value = "/activity/accountinfo", method = RequestMethod.GET)
     public String doGetActivityAccountInfo(@RequestParam("id") String id, ModelMap modelMap) {
@@ -72,7 +81,7 @@ public class BaseAclController {
             return RedirectConstants.R_WEB_HOME;
         }
 
-        if (loginUserHolder.isActivityVistor(id)) {
+        if (loginUserHolder.isActivityVisitor(id)) {
             modelMap.addAttribute("sysmsg", "你还不是该活动的成员,不能查看该活动的财务信息");
 
             return ACCOUNT_INFO_VIEW;
@@ -86,6 +95,23 @@ public class BaseAclController {
 
         return ACCOUNT_INFO_VIEW;
     }
+
+    @RequestMapping(value = "/activity/accountinfo", method = RequestMethod.POST, params = "action=pass")
+    public String doPostPassActivityAccountInfo(@RequestParam String accountInfoId, @RequestParam String id){
+
+        accountInfoManager.passAccountInfo(accountInfoId);
+
+        return RedirectConstants.R_ACTIVITY_ACCOUNTINFO_PRE + id;
+    }
+
+    @RequestMapping(value = "/activity/accountinfo", method = RequestMethod.POST, params = "action=reject")
+    public String doPostRejectActivityAccountInfo(@RequestParam String accountInfoId, @RequestParam String id){
+
+        accountInfoManager.unPassAccountInfo(accountInfoId);
+
+        return RedirectConstants.R_ACTIVITY_ACCOUNTINFO_PRE + id;
+    }
+
 
     @RequestMapping(value = "/team/accountinfo", method = RequestMethod.GET)
     public String doGetTeamAccountInfo() {
@@ -116,7 +142,22 @@ public class BaseAclController {
     }
 
     @RequestMapping(value = "/activity/member", method = RequestMethod.GET)
-    public String doGetActivityMember() {
+    public String doGetActivityMember(@RequestParam String activityId, ModelMap modelMap) {
+        List<RelaUserActivityBO> allRelaUser = relaUserActivityManager.queryAllUserByActivityId(activityId);
+
+        Collections.sort(allRelaUser, new Comparator<RelaUserActivityBO>() {
+            @Override
+            public int compare(RelaUserActivityBO a, RelaUserActivityBO b) {
+                Integer aOrder = a.getUserRole().getOrder();
+                Integer bOrder = b.getUserRole().getOrder();
+
+                return aOrder - bOrder;
+            }
+        });
+
+
+        modelMap.addAttribute("allRelaUser", allRelaUser);
+        modelMap.addAttribute("activityId", activityId);
         return ACTIVITY_MEMBER_VIEW;
     }
 
@@ -129,6 +170,39 @@ public class BaseAclController {
         accountInfoBO = accountInfoManager.addActivityAccountInfo(accountInfoBO);
 
         return RedirectConstants.R_ACTIVITY_ACCOUNTINFO_PRE + id;
+    }
+
+
+    @RequestMapping(value = "/activity/applyjoin", method = RequestMethod.POST)
+    public String postApplyJoinActivity(@RequestParam String activityId) {
+
+        if (StringUtils.isEmpty(activityId)) {
+            return RedirectConstants.R_WEB_HOME;
+        }
+
+        if (!activityManager.isExist(activityId)) {
+            return RedirectConstants.R_WEB_HOME;
+        }
+
+        relaUserActivityManager.applyJoinActivity(activityId);
+
+        return RedirectConstants.R_ACTIVITY_HOME_PRE + activityId;
+    }
+
+    @RequestMapping(value = "/activity/member", method = RequestMethod.POST, params = "action=passMember")
+    public String doPostPassJoinInActivity(@RequestParam String activityId, @RequestParam String userId) {
+
+        relaUserActivityManager.passUserJoinActivity(userId, activityId);
+
+        return RedirectConstants.R_ACTIVITY_MEMBER_PRE + activityId;
+    }
+
+    @RequestMapping(value = "/activity/member", method = RequestMethod.POST, params = "action=removeUser")
+    public String doPostRemoveActivityUser(@RequestParam String activityId, @RequestParam String userId) {
+
+        relaUserActivityManager.removeUser(userId, activityId);
+
+        return RedirectConstants.R_ACTIVITY_MEMBER_PRE + activityId;
     }
 
     @RequestMapping(value = "/team/applyjoin", method = RequestMethod.POST)

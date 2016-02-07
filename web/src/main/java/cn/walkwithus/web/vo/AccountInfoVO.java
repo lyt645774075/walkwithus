@@ -162,4 +162,6 @@ public class AccountInfoVO {
     public void setSubmitUserNickName(String submitUserNickName) {
         this.submitUserNickName = submitUserNickName;
     }
+
+
 }

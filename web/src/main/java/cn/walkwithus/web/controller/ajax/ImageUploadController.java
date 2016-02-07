@@ -59,7 +59,7 @@ public class ImageUploadController {
             if(!exist){
                 ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
                 BufferedImage image = ImageIO.read(file.getInputStream());
-                Float scale = MAX_WIDTH / image.getWidth();
+                Float scale = MAX_WIDTH / image.getWidth() > 1f ? 1f : MAX_WIDTH / image.getWidth();
 
                 Thumbnails.of(file.getInputStream()).scale(scale).outputQuality(0.9f).outputFormat("jpg").toOutputStream(outputStream);
 

@@ -1,5 +1,6 @@
 package cn.walkwithus.core.manager.impl;
 
+import cn.walkwithus.core.builder.SingleActivityBuilder;
 import cn.walkwithus.core.domain.ActivityBO;
 import cn.walkwithus.core.manager.ActivityManager;
 import cn.walkwithus.core.transfer.ActivityTransfer;
@@ -18,6 +19,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  * @author yangtao.lyt
@@ -25,10 +27,10 @@ import java.util.Date;
  */
 
 @Service
-public class ActivityManagerImpl implements ActivityManager{
+public class ActivityManagerImpl implements ActivityManager {
 
     @Autowired
-    private ActivityDAO activityDAO;
+    private ActivityDAO         activityDAO;
 
     @Autowired
     private RelaUserActivityDAO relaUserActivityDAO;
@@ -37,13 +39,14 @@ public class ActivityManagerImpl implements ActivityManager{
     private RelaTeamActivityDAO relaTeamActivityDAO;
 
     @Autowired
-    private LoginUserHolder loginUserHolder;
+    private LoginUserHolder     loginUserHolder;
 
     @Override
-    public String testStr() {
-        return "调用manager成功";
-    }
+    public boolean isExist(String activityId) {
+        Preconditions.checkNotNull(activityId);
 
+        return activityDAO.exists(activityId);
+    }
 
     @Override
     public ActivityBO createActivity(ActivityBO activityBO) {
@@ -57,7 +60,7 @@ public class ActivityManagerImpl implements ActivityManager{
         activityDO = activityDAO.save(activityDO);
 
         //插入"团队-活动"关系
-        if(activityBO.getDomainObj() == DomainObj.TEAM){
+        if (activityBO.getDomainObj() == DomainObj.TEAM) {
             RelaTeamActivityDO relaTeamActivityDO = new RelaTeamActivityDO();
             relaTeamActivityDO.setGmtCreate(now);
             relaTeamActivityDO.setGmtModified(now);
@@ -92,7 +95,7 @@ public class ActivityManagerImpl implements ActivityManager{
         Preconditions.checkArgument(!StringUtils.isEmpty(activityBO.getId()), "不能更新活动,活动id为空");
 
         ActivityDO oldActivity = activityDAO.findOne(activityBO.getId());
-        if(oldActivity == null){
+        if (oldActivity == null) {
             throw new IllegalStateException("活动不存在,不能更新");
         }
 
@@ -102,12 +105,13 @@ public class ActivityManagerImpl implements ActivityManager{
         activityDO = activityDAO.save(activityDO);
 
         //更新团队-活动关系
-        if(!activityDO.getName().equals(oldActivity.getName())
-                || !activityDO.getBeginDate().equals(oldActivity.getBeginDate())
-                || !activityDO.getEndDate().equals(oldActivity.getEndDate())){
+        if (!activityDO.getName().equals(oldActivity.getName())
+            || !activityDO.getBeginDate().equals(oldActivity.getBeginDate())
+            || !activityDO.getEndDate().equals(oldActivity.getEndDate())) {
 
-            RelaTeamActivityDO relaTeamActivityDO = relaTeamActivityDAO.findTeamByActivityId(activityDO.getId());
-            if(relaTeamActivityDO == null) {
+            RelaTeamActivityDO relaTeamActivityDO = relaTeamActivityDAO
+                .findTeamByActivityId(activityDO.getId());
+            if (relaTeamActivityDO == null) {
                 relaTeamActivityDO = new RelaTeamActivityDO();
 
                 relaTeamActivityDO.setGmtCreate(now);
@@ -119,7 +123,7 @@ public class ActivityManagerImpl implements ActivityManager{
                 relaTeamActivityDO.setTeamId(activityBO.getDomainId());
                 relaTeamActivityDO.setTeamName(activityBO.getOwnerName());
                 relaTeamActivityDO.setEnable(true);
-            }else{
+            } else {
                 relaTeamActivityDO.setGmtModified(now);
                 relaTeamActivityDO.setActivityName(activityDO.getName());
                 relaTeamActivityDO.setActivityBeginDate(activityDO.getBeginDate());
@@ -137,19 +141,24 @@ public class ActivityManagerImpl implements ActivityManager{
         Preconditions.checkArgument(!StringUtils.isEmpty(id), "id不能为空");
 
         ActivityDO activityDO = activityDAO.findOne(id);
-        if(activityDO == null){
+        if (activityDO == null) {
             return null;
         }
         ActivityBO activityBO = ActivityTransfer.toBO(activityDO);
 
+        /*
+         * 获取所属团队信息
+         */
         RelaTeamActivityDO relaTeamActivityDO = relaTeamActivityDAO.findTeamByActivityId(id);
-        if(relaTeamActivityDO != null){
-            activityBO.setDomainId(relaTeamActivityDO.getTeamId());
-            activityBO.setDomainObj(DomainObj.TEAM);
-            activityBO.setOwnerName(relaTeamActivityDO.getTeamName());
-        }
 
-        return activityBO;
+        /*
+         * 获取所属成员信息
+         */
+        List<RelaUserActivityDO> relaUserActivityDOList = relaUserActivityDAO
+            .findAllUserByActivityIdAndValid(id, true);
+
+        return SingleActivityBuilder.newInstance().from(activityDO)
+            .fromRelaTeam(relaTeamActivityDO).fromRelaUserList(relaUserActivityDOList).build();
 
     }
 }

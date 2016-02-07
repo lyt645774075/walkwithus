@@ -8,7 +8,7 @@ import cn.walkwithus.core.domain.ActivityBO;
  */
 public interface ActivityManager {
 
-    public String testStr();
+    public boolean isExist(String activityId);
 
 
     /**

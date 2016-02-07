@@ -17,4 +17,8 @@ public interface RelaUserActivityDAO extends MongoRepository<RelaUserActivityDO,
 
     public List<RelaUserActivityDO> findAllUserByActivityId(String activityId);
 
+    public List<RelaUserActivityDO> findAllUserByActivityIdAndValid(String activityId, boolean valid);
+
+    public void deleteOneByUserIdAndActivityId(String userId, String activityId);
+
 }

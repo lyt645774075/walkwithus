@@ -1,6 +1,10 @@
 package cn.walkwithus.web.vo;
 
+import cn.walkwithus.core.domain.RelaUserActivityBO;
 import cn.walkwithus.support.constants.DomainObj;
+import com.google.common.collect.Lists;
+
+import java.util.List;
 
 /**
  * @author yangtao.lyt
@@ -18,6 +22,9 @@ public class ActivityVO {
     private String domainId;
     /** owner的名字   团队名称,个人昵称 */
     private String ownerName;
+
+    private List<RelaUserActivityBO> relaUserActivityBOList = Lists.newArrayList();
+
 
     private String beginDate;
 
@@ -98,5 +105,13 @@ public class ActivityVO {
 
     public void setOwnerName(String ownerName) {
         this.ownerName = ownerName;
+    }
+
+    public List<RelaUserActivityBO> getRelaUserActivityBOList() {
+        return relaUserActivityBOList;
+    }
+
+    public void setRelaUserActivityBOList(List<RelaUserActivityBO> relaUserActivityBOList) {
+        this.relaUserActivityBOList = relaUserActivityBOList;
     }
 }
