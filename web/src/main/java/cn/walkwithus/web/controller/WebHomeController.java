@@ -8,6 +8,8 @@ import cn.walkwithus.security.login.LoginUserHolder;
 import cn.walkwithus.support.constants.RedirectConstants;
 import cn.walkwithus.web.transfer.UserTransfer;
 import cn.walkwithus.web.vo.UserVO;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -27,6 +29,8 @@ import java.util.List;
 
 @Controller
 public class WebHomeController {
+
+    private static final Logger logger = LoggerFactory.getLogger(WebHomeController.class);
 
     /** 网站首页 */
     private static final String WEB_HOME_VIEW = "screen/webhome";
@@ -54,6 +58,7 @@ public class WebHomeController {
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String doGetHome(ModelMap modelMap){
+
 
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 

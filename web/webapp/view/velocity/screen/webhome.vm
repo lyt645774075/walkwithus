@@ -9,28 +9,21 @@
 
 </style>
 
-    <div class="row">
-        <div class="col-lg-12" >
+        <div class="row" >
             <img class="img-responsive" src="/img/900x300.jpg" style="width: 100%; max-height: 280px;" >
         </div>
-    </div>
 
 
 
     <div class="row">
-
         <div class="col-md-8" >
-
             <div class="row">
-                <div class="col-lg-12">
                     <h3 class="page-header" style="border-bottom:2px solid #18BC9C">每日简讯
                         <small></small>
                     </h3>
-
-                </div>
             </div>
 
-            <div class="brief-item">
+            <div class="brief-item row">
                 <span class="glyphicon glyphicon-grain" style="color:green"></span>
                 <span class="glyphicon glyphicon-usd" style="color:green"></span>
                 <a href="/#">walkwithus</a>
@@ -64,7 +57,7 @@
 
             </div>
 
-            <div class="brief-item">
+            <div class="brief-item row">
                 <span class="glyphicon glyphicon-grain" style="color:green"></span>
                 <span class="glyphicon glyphicon-usd" style="color:green"></span>
                 <a href="/#">walkwithus</a>
@@ -98,7 +91,7 @@
 
             </div>
 
-            <div class="brief-item">
+            <div class="brief-item row">
                 <span class="glyphicon glyphicon-grain" style="color:green"></span>
                 <span class="glyphicon glyphicon-usd" style="color:green"></span>
                 <a href="/#">walkwithus</a>
